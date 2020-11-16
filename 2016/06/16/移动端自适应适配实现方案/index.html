@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>移动端自适应适配实现方案 | JDDFE</title>
+  <meta name="description" content="最近招聘面试过程中，我经常会问到这个移动端自适应适配是怎么实现的，大部分候选人都能说初rem的方式，但是很少有能说出原理的。 rem 实现弹性布局原理根据屏幕宽度动态改变 html 根字体的大小。 （1）rem + js 实现弹性布局    rem 和 em 两者都是 css 的相对单位，但是两者有明显的区别：当作为font-size单位时，em 表示相对于父元素字体的大小；当作为其他单位时，表示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端自适应适配实现方案">
+<meta property="og:url" content="https://blog.jddfe.com/2016/06/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E9%80%82%E9%85%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="JDDFE">
+<meta property="og:description" content="最近招聘面试过程中，我经常会问到这个移动端自适应适配是怎么实现的，大部分候选人都能说初rem的方式，但是很少有能说出原理的。 rem 实现弹性布局原理根据屏幕宽度动态改变 html 根字体的大小。 （1）rem + js 实现弹性布局    rem 和 em 两者都是 css 的相对单位，但是两者有明显的区别：当作为font-size单位时，em 表示相对于父元素字体的大小；当作为其他单位时，表示">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-06-16T07:21:47.000Z">
+<meta property="article:modified_time" content="2020-11-11T07:37:04.218Z">
+<meta property="article:author" content="Esmiler">
+<meta property="article:tag" content="rem">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="适配">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.jddfe.com/2016/06/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E9%80%82%E9%85%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/jddfe" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">JDDFE</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Just Developer &amp; Design</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jddfe" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/jddfe" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="https://jddfe.coding.net" target="_blank" title="Coding" data-toggle=tooltip data-placement=top><i class="icon icon-coding"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%87%82%E7%90%86%E8%B4%A2/">懂理财</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/">折腾不止</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Page/" rel="tag">Github Page</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-GitPage/" rel="tag">Hexo GitPage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/" rel="tag">event</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E9%87%91/" rel="tag">基金</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag">定投</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" rel="tag">栈和堆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81/" rel="tag">节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D/" rel="tag">适配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%B2%E6%8A%96/" rel="tag">防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/tags/Git/" style="font-size: 13px;">Git</a> <a href="/tags/Github-Page/" style="font-size: 13px;">Github Page</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Hexo-GitPage/" style="font-size: 13px;">Hexo GitPage</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/Javascript/" style="font-size: 13.33px;">Javascript</a> <a href="/tags/css/" style="font-size: 13px;">css</a> <a href="/tags/event/" style="font-size: 13px;">event</a> <a href="/tags/javascript/" style="font-size: 13.67px;">javascript</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 13px;">事件</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 13px;">原型链</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 13px;">基金</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">学习笔记</a> <a href="/tags/%E5%AE%9A%E6%8A%95/" style="font-size: 13px;">定投</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" style="font-size: 13px;">栈和堆</a> <a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 13px;">节流</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 13px;">适配</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 13px;">闭包</a> <a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 13px;">防抖</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13.33px;">面向对象</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%87%82%E7%90%86%E8%B4%A2/">懂理财</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/14/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E7%A7%91%E6%99%AE%E5%AE%9D%E5%85%B8/" class="title">基金投资新手入门科普宝典</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-14T15:06:10.000Z" itemprop="datePublished">2020-11-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/11/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" class="title">防抖、节流及应用场景</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-11T14:27:28.000Z" itemprop="datePublished">2020-11-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/">折腾不止</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/09/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%88%B0-Coding-%E5%92%8C-GitHub-%E5%B9%B6%E5%AE%9E%E7%8E%B0%E5%85%A8%E7%AB%99-HTTPS/" class="title">Hexo 双线部署到 Coding 和 GitHub 并实现全站 HTTPS</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-09T14:56:25.000Z" itemprop="datePublished">2020-11-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/09/03/%E9%97%AD%E5%8C%85%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%8D%A0%E7%94%A8%E5%86%85%E5%AD%98/" class="title">闭包为什么会占用内存</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-09-03T14:16:54.000Z" itemprop="datePublished">2016-09-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/09/02/%E6%A0%88%E5%86%85%E5%AD%98%E5%A0%86%E5%86%85%E5%AD%98%E5%92%8C%E9%A2%84%E5%A4%84%E7%90%86/" class="title">栈内存堆内存和预处理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-09-02T14:10:54.000Z" itemprop="datePublished">2016-09-02</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-移动端自适应适配实现方案" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端自适应适配实现方案
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/06/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E9%80%82%E9%85%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" class="article-date">
+	  <time datetime="2016-06-16T07:21:47.000Z" itemprop="datePublished">2016-06-16</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/css/" rel="tag">css</a>, <a class="article-tag-link-link" href="/tags/rem/" rel="tag">rem</a>, <a class="article-tag-link-link" href="/tags/%E9%80%82%E9%85%8D/" rel="tag">适配</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/06/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E9%80%82%E9%85%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>最近招聘面试过程中，我经常会问到这个移动端自适应适配是怎么实现的，大部分候选人都能说初rem的方式，但是很少有能说出原理的。</p>
+<h4 id="rem-实现弹性布局原理"><a href="#rem-实现弹性布局原理" class="headerlink" title="rem 实现弹性布局原理"></a>rem 实现弹性布局原理</h4><p>根据屏幕宽度动态改变 html 根字体的大小。</p>
+<p><strong>（1）rem + js 实现弹性布局</strong>   </p>
+<p>rem 和 em 两者都是 css 的相对单位，但是两者有明显的区别：<br>当作为font-size单位时，em 表示相对于父元素字体的大小；当作为其他单位时，表示自身字体大小，比如首行缩紧2个字符 text-indent:2em; 。<br>当作为非根元素的时，rem 是相对于根字体的大小；当作为根元素时，相对于初始字体大小的。<br>💡em 容易造成“牵一发而动全身”，可以用作于行高、首行缩紧等；rem 最大的特点是统一参考系，其实现弹性布局的本质是等比缩放（通常是基于宽度）。</p>
+<p><strong>（2）更高级的单位 vw 实现弹性布局</strong>  </p>
+<p>如果把屏幕宽度分为 100 份，每一份就是宽度的 1% ，如果以这一份为单位 就可以实现弹性布局了。利用 rem 相对于根字体这个特性，可以间接地实现这样的单位。 根字体的大小通常是通过 js 获取屏幕宽度设置的。但是 CSS3 引入了一个新的单位 vw ，vw —— 视口宽度的 1/100，其实正是上面我们想办法实现的那个每一份的单位。 vw 允许不通过 js 也能实现根据屏幕宽度的弹性布局。</p>
+<p><strong>（3）vw + rem实现弹性布局</strong>  </p>
+<p>我们完全可以通过 vw 实现弹性布局，当然 vw 结合 rem 同样可以实现弹性布局。   </p>
+<h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><p>移动端设备的屏幕大小差别很大，为了避免因为屏幕过宽或过窄造成字体过大或过小，需要结合媒体查询 根据不同屏幕的宽度，设定相对单位的大小。这个时候就需要利用 rem 实现了。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//当屏幕宽度小于 320px 的时候，规定字体大小 64px 。</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">320px</span>) &#123;  </span><br><span class="line">  <span class="selector-tag">font-size</span>: 64<span class="selector-tag">px</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//当屏幕宽度大于 540px 的时候，规定字体大小 108px 。</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">540px</span>) &#123;  </span><br><span class="line">  <span class="selector-tag">font-size</span>: 108<span class="selector-tag">px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>💡响应式布局是不同设备、屏幕展示的样式不同。弹性布局则是等比缩放，高度还原。弹性布局属于响应式布局的一种。使用 rem 实现弹性布局不允许用户设置字体大小，所以 rem 通常适用于图标类活动页，而不是适用于纯文本的页面。</p>
+<h4 id="css-预处理器语言-scss"><a href="#css-预处理器语言-scss" class="headerlink" title="css 预处理器语言 scss"></a>css 预处理器语言 scss</h4><p>scss 是 css 预处理器语言，语法规则和 css 类似。比如，变量使用 $ 符表示，如 $m_fontsize:75 。可以定义函数等。<br>具体规则可查看<a target="_blank" rel="noopener" href="https://www.sass.hk/docs/">sass官方文档</a>。</p>
+<h4 id="rem-vw-媒体查询方式实现弹性布局的完整代码实例"><a href="#rem-vw-媒体查询方式实现弹性布局的完整代码实例" class="headerlink" title="rem + vw + 媒体查询方式实现弹性布局的完整代码实例"></a>rem + vw + 媒体查询方式实现弹性布局的完整代码实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;通常设计稿以 iphone6 为模型来设计的。因为 iphone6 屏幕宽度是 750px ，所以 iphone6 的屏宽尺寸设置根元素大小基准值 75px ，这里 75px 只是用来计算的，完全可以设置成其他的值</span><br><span class="line">$m_fontsize: 75;   </span><br><span class="line">@function rem($px) &#123;  </span><br><span class="line">  @return ($px &#x2F; $m_fontsize) * 1rem;  </span><br><span class="line">&#125;  </span><br><span class="line">$m_design: 750;  </span><br><span class="line">html &#123;  </span><br><span class="line">  font-size: ($m_fontsize &#x2F; ($m_design &#x2F; 2)) * 100vw;   </span><br><span class="line">  &#x2F;&#x2F; 通过媒体查询限制屏幕过宽过窄造成的页面内容过大和过小的问题</span><br><span class="line">  @media screen and (max-width: 320px) &#123;  </span><br><span class="line">    font-size: 64px;  </span><br><span class="line">  &#125;  </span><br><span class="line">  @media screen and (min-width: 540px) &#123;  </span><br><span class="line">    font-size: 110px;  </span><br><span class="line">  &#125;  </span><br><span class="line">&gt;&#125;  </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.jddfe.com/2016/06/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E9%80%82%E9%85%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" title="移动端自适应适配实现方案" target="_blank" rel="external">https://blog.jddfe.com/2016/06/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E9%80%82%E9%85%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jddfe" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jddfe" target="_blank"><span class="text-dark">JDDFE</span><small class="ml-1x">Just Developer &amp; Design</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2016/08/15/OOP%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" title="OOP之类与对象"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/04/03/ES6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E4%B9%8B%E5%B8%B8%E9%87%8F%E4%B8%8E%E5%8F%98%E9%87%8F(%E4%B8%80)/" title="ES6从入门到精通之常量与变量(一)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jddfe" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/jddfe" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="https://jddfe.coding.net" target="_blank" title="Coding" data-toggle=tooltip data-placement=top><i class="icon icon-coding"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ab7714dcf913e5cb7d1a',
+    clientSecret: '36c601024585737b57e523027eb54334e241e265',
+    repo: 'jddfe.github.io',
+    owner: 'jddfe',
+    admin: ['jddfe'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
