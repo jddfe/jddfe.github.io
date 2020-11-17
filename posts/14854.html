@@ -17,20 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>JDDFE</title>
-  <meta name="description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JDDFE">
-<meta property="og:url" content="https://blog.jddfe.com/tmp-bak.html">
+  <title>移动端自适应适配实现方案 | JDDFE</title>
+  <meta name="description" content="最近招聘面试过程中，我经常会问到这个移动端自适应适配是怎么实现的，大部分候选人都能说初rem的方式，但是很少有能说出原理的。 rem 实现弹性布局原理根据屏幕宽度动态改变 html 根字体的大小。 （1）rem + js 实现弹性布局    rem 和 em 两者都是 css 的相对单位，但是两者有明显的区别：当作为font-size单位时，em 表示相对于父元素字体的大小；当作为其他单位时，表示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端自适应适配实现方案">
+<meta property="og:url" content="https://blog.jddfe.com/posts/14854.html">
 <meta property="og:site_name" content="JDDFE">
-<meta property="og:description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
+<meta property="og:description" content="最近招聘面试过程中，我经常会问到这个移动端自适应适配是怎么实现的，大部分候选人都能说初rem的方式，但是很少有能说出原理的。 rem 实现弹性布局原理根据屏幕宽度动态改变 html 根字体的大小。 （1）rem + js 实现弹性布局    rem 和 em 两者都是 css 的相对单位，但是两者有明显的区别：当作为font-size单位时，em 表示相对于父元素字体的大小；当作为其他单位时，表示">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-15T15:05:10.472Z">
-<meta property="article:modified_time" content="2020-11-15T15:05:10.472Z">
+<meta property="article:published_time" content="2016-06-16T07:21:47.000Z">
+<meta property="article:modified_time" content="2020-11-17T12:54:33.346Z">
 <meta property="article:author" content="Esmiler">
+<meta property="article:tag" content="rem">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="适配">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.jddfe.com/tmp-bak.html">
+  <link rel="canonical" href="https://blog.jddfe.com/posts/14854.html">
   
     <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
   
@@ -327,36 +330,69 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-移动端自适应适配实现方案" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端自适应适配实现方案
+    </h1>
+  
+
       
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/tmp-bak.html" class="article-date">
-	  <time datetime="2020-11-15T15:05:10.472Z" itemprop="datePublished">2020-11-15</time>
+	<a href="/posts/14854.html" class="article-date">
+	  <time datetime="2016-06-16T07:21:47.000Z" itemprop="datePublished">2016-06-16</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/css/" rel="tag">css</a>, <a class="article-tag-link-link" href="/tags/rem/" rel="tag">rem</a>, <a class="article-tag-link-link" href="/tags/%E9%80%82%E9%85%8D/" rel="tag">适配</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/tmp-bak.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/14854.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 65(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 917(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="关于介绍"><a href="#关于介绍" class="headerlink" title="关于介绍"></a>关于介绍</h4><p>不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。</p>
+        <p>最近招聘面试过程中，我经常会问到这个移动端自适应适配是怎么实现的，大部分候选人都能说初rem的方式，但是很少有能说出原理的。</p>
+<h4 id="rem-实现弹性布局原理"><a href="#rem-实现弹性布局原理" class="headerlink" title="rem 实现弹性布局原理"></a>rem 实现弹性布局原理</h4><p>根据屏幕宽度动态改变 html 根字体的大小。</p>
+<p><strong>（1）rem + js 实现弹性布局</strong>   </p>
+<p>rem 和 em 两者都是 css 的相对单位，但是两者有明显的区别：<br>当作为font-size单位时，em 表示相对于父元素字体的大小；当作为其他单位时，表示自身字体大小，比如首行缩紧2个字符 text-indent:2em; 。<br>当作为非根元素的时，rem 是相对于根字体的大小；当作为根元素时，相对于初始字体大小的。<br>💡em 容易造成“牵一发而动全身”，可以用作于行高、首行缩紧等；rem 最大的特点是统一参考系，其实现弹性布局的本质是等比缩放（通常是基于宽度）。</p>
+<p><strong>（2）更高级的单位 vw 实现弹性布局</strong>  </p>
+<p>如果把屏幕宽度分为 100 份，每一份就是宽度的 1% ，如果以这一份为单位 就可以实现弹性布局了。利用 rem 相对于根字体这个特性，可以间接地实现这样的单位。 根字体的大小通常是通过 js 获取屏幕宽度设置的。但是 CSS3 引入了一个新的单位 vw ，vw —— 视口宽度的 1/100，其实正是上面我们想办法实现的那个每一份的单位。 vw 允许不通过 js 也能实现根据屏幕宽度的弹性布局。</p>
+<p><strong>（3）vw + rem实现弹性布局</strong>  </p>
+<p>我们完全可以通过 vw 实现弹性布局，当然 vw 结合 rem 同样可以实现弹性布局。   </p>
+<h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><p>移动端设备的屏幕大小差别很大，为了避免因为屏幕过宽或过窄造成字体过大或过小，需要结合媒体查询 根据不同屏幕的宽度，设定相对单位的大小。这个时候就需要利用 rem 实现了。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//当屏幕宽度小于 320px 的时候，规定字体大小 64px 。</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">320px</span>) &#123;  </span><br><span class="line">  <span class="selector-tag">font-size</span>: 64<span class="selector-tag">px</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//当屏幕宽度大于 540px 的时候，规定字体大小 108px 。</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">540px</span>) &#123;  </span><br><span class="line">  <span class="selector-tag">font-size</span>: 108<span class="selector-tag">px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>💡响应式布局是不同设备、屏幕展示的样式不同。弹性布局则是等比缩放，高度还原。弹性布局属于响应式布局的一种。使用 rem 实现弹性布局不允许用户设置字体大小，所以 rem 通常适用于图标类活动页，而不是适用于纯文本的页面。</p>
+<h4 id="css-预处理器语言-scss"><a href="#css-预处理器语言-scss" class="headerlink" title="css 预处理器语言 scss"></a>css 预处理器语言 scss</h4><p>scss 是 css 预处理器语言，语法规则和 css 类似。比如，变量使用 $ 符表示，如 $m_fontsize:75 。可以定义函数等。<br>具体规则可查看<a target="_blank" rel="noopener" href="https://www.sass.hk/docs/">sass官方文档</a>。</p>
+<h4 id="rem-vw-媒体查询方式实现弹性布局的完整代码实例"><a href="#rem-vw-媒体查询方式实现弹性布局的完整代码实例" class="headerlink" title="rem + vw + 媒体查询方式实现弹性布局的完整代码实例"></a>rem + vw + 媒体查询方式实现弹性布局的完整代码实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;通常设计稿以 iphone6 为模型来设计的。因为 iphone6 屏幕宽度是 750px ，所以 iphone6 的屏宽尺寸设置根元素大小基准值 75px ，这里 75px 只是用来计算的，完全可以设置成其他的值</span><br><span class="line">$m_fontsize: 75;   </span><br><span class="line">@function rem($px) &#123;  </span><br><span class="line">  @return ($px &#x2F; $m_fontsize) * 1rem;  </span><br><span class="line">&#125;  </span><br><span class="line">$m_design: 750;  </span><br><span class="line">html &#123;  </span><br><span class="line">  font-size: ($m_fontsize &#x2F; ($m_design &#x2F; 2)) * 100vw;   </span><br><span class="line">  &#x2F;&#x2F; 通过媒体查询限制屏幕过宽过窄造成的页面内容过大和过小的问题</span><br><span class="line">  @media screen and (max-width: 320px) &#123;  </span><br><span class="line">    font-size: 64px;  </span><br><span class="line">  &#125;  </span><br><span class="line">  @media screen and (min-width: 540px) &#123;  </span><br><span class="line">    font-size: 110px;  </span><br><span class="line">  &#125;  </span><br><span class="line">&gt;&#125;  </span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -366,7 +402,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://blog.jddfe.com/tmp-bak.html" title="" target="_blank" rel="external">https://blog.jddfe.com/tmp-bak.html</a>
+      <a href="https://blog.jddfe.com/posts/14854.html" title="移动端自适应适配实现方案" target="_blank" rel="external">https://blog.jddfe.com/posts/14854.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -409,6 +445,20 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/10937.html" title="OOP之类与对象"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/63881.html" title="ES6从入门到精通之常量与变量(一)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   
@@ -478,6 +528,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
 
 
 

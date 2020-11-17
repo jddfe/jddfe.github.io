@@ -17,20 +17,28 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>JDDFE</title>
-  <meta name="description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JDDFE">
-<meta property="og:url" content="https://blog.jddfe.com/tmp-bak.html">
+  <title>栈内存堆内存和预处理 | JDDFE</title>
+  <meta name="description" content="浏览器是如何运行javascript代码的？JavaScript 是如何运行的？ 看例1： 123456var num &#x3D; 12;function fn() &amp;#123;    var num &#x3D; 100;&amp;#125;fn();num &#x3D; 200;  用图解释这一行代码是如何执行的。  这是一个简单的图示，现在我们来增加几个概念：栈内存、堆内存和预处理。 栈内存栈内存用来存放基本数据类型(Numb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈内存堆内存和预处理">
+<meta property="og:url" content="https://blog.jddfe.com/posts/49976.html">
 <meta property="og:site_name" content="JDDFE">
-<meta property="og:description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
+<meta property="og:description" content="浏览器是如何运行javascript代码的？JavaScript 是如何运行的？ 看例1： 123456var num &#x3D; 12;function fn() &amp;#123;    var num &#x3D; 100;&amp;#125;fn();num &#x3D; 200;  用图解释这一行代码是如何执行的。  这是一个简单的图示，现在我们来增加几个概念：栈内存、堆内存和预处理。 栈内存栈内存用来存放基本数据类型(Numb">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-15T15:05:10.472Z">
-<meta property="article:modified_time" content="2020-11-15T15:05:10.472Z">
+<meta property="og:image" content="https://blog.jddfe.com/posts/T161637.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/T161737.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/T161816.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/T161853.png">
+<meta property="article:published_time" content="2016-09-02T14:10:54.000Z">
+<meta property="article:modified_time" content="2020-11-17T12:54:33.344Z">
 <meta property="article:author" content="Esmiler">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="栈和堆">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jddfe.com/posts/T161637.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.jddfe.com/tmp-bak.html">
+  <link rel="canonical" href="https://blog.jddfe.com/posts/49976.html">
   
     <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
   
@@ -327,36 +335,88 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-栈内存堆内存和预处理" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      栈内存堆内存和预处理
+    </h1>
+  
+
       
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/tmp-bak.html" class="article-date">
-	  <time datetime="2020-11-15T15:05:10.472Z" itemprop="datePublished">2020-11-15</time>
+	<a href="/posts/49976.html" class="article-date">
+	  <time datetime="2016-09-02T14:10:54.000Z" itemprop="datePublished">2016-09-02</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Javascript/" rel="tag">Javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a>, <a class="article-tag-link-link" href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" rel="tag">栈和堆</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/tmp-bak.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/49976.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 65(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 855(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="关于介绍"><a href="#关于介绍" class="headerlink" title="关于介绍"></a>关于介绍</h4><p>不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。</p>
+        <p>浏览器是如何运行javascript代码的？<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020438413">JavaScript 是如何运行的？</a></p>
+<p>看例1：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line">num = <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
+
+<p>用图解释这一行代码是如何执行的。</p>
+<p><img src="T161637.png" alt="T161637"></p>
+<p>这是一个简单的图示，现在我们来增加几个概念：栈内存、堆内存和预处理。</p>
+<h2 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h2><p>栈内存用来存放基本数据类型(Number、String、Boolean、Null和Undefined)，<strong>在执行完之后销毁。</strong></p>
+<p>栈内存与另一个概念息息相关——作用域，即代码的执行环境。上图中左边的栈内存就是全局作用域，而右边的则是局部作用域。全局作用域在浏览器窗口关闭之后才销毁。局部作用域在执行完之后就会销毁。</p>
+<p>javascript规定，父作用域不能使用子作用域中变量和方程，而反过来是可以的。这个反过来的方向链条则被称为作用域链。</p>
+<p>这里需要注意的是，<strong>判断子作用域的父作用域是哪一个，要看这个子作用域是在哪里定义的，而不是在哪里执行。</strong></p>
+<h2 id="堆内存"><a href="#堆内存" class="headerlink" title="堆内存"></a>堆内存</h2><p>堆内存用来存放引用数据类型(object、array、function、date)，<strong>在没有被引用之后销毁。</strong></p>
+<p>当我们声明和定义了一个引用数据类型之后，这个对象保存在堆内存中，而这个对象的地址则保存在栈内存中以用于引用。</p>
+<p>在全局作用域声明和定义的引用数据类型，销毁的方法是手动赋值null。</p>
+<h2 id="看一组例子来说明栈内存与堆内存的区别："><a href="#看一组例子来说明栈内存与堆内存的区别：" class="headerlink" title="看一组例子来说明栈内存与堆内存的区别："></a>看一组例子来说明栈内存与堆内存的区别：</h2><p>例2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 20;</span><br><span class="line">var b &#x3D; a;</span><br><span class="line">b &#x3D; 30;</span><br><span class="line">&#x2F;&#x2F; a等于多少？</span><br></pre></td></tr></table></figure>
+
+<p>例3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; &#123; a: 10, b: 20 &#125;</span><br><span class="line">var n &#x3D; m;</span><br><span class="line">n.a &#x3D; 15;</span><br><span class="line">&#x2F;&#x2F; m.a的值是分别是什么？</span><br></pre></td></tr></table></figure>
+
+<p>例2的图解</p>
+<p><img src="T161737.png" alt="T161737"></p>
+<p>例3的图解</p>
+<p><img src="T161816.png" alt="T161816"></p>
+<p>由上两个图解可见，当基本数据类型传递的时候，其实是复制了一个新的数据给另一个变量；而当引用类型传递的时候，复制的仅仅是引用数据类型的地址，两个变量通过地址指向的是同一个堆内存中的数据。</p>
+<p>所以在例3中，当我们改变n.a的时候，m.a也同样改变了。</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>预处理是浏览器在执行代码前要做的任务，它包括变量的声明和函数声明与定义。</p>
+<p>预处理是<strong>变量提升</strong>的原因。</p>
+<p>当我们写了<code>var num = 12</code>这样的一行代码的时候，在执行时其实是分为两步：声明<code>var num</code>和定义<code>num = 12</code>。对于变量，预处理只做声明而不做定义。</p>
+<p>而相对于函数<code>function fn()&#123;var num 12&#125;</code>，同样有声明和定义之分，与变量不同的是，预处理时声明和定义全部执行。具体步骤是：声明<code>function fn()</code>，定义<code>fn() = &quot;&#123;var num = 12&#125;&quot;</code>。</p>
+<p>理解了栈内存、堆内存和预处理之后，重新画出例1的图示：</p>
+<p><img src="T161853.png" alt="T161853"></p>
+<p>这里的堆内存xxxfff000被全局作用域的函数fn引用，而全局作用域只有在浏览器窗口关闭的时候才会销毁，所以，只要浏览器窗口没有关闭，则堆内存xxxfff000一直被引用而不会销毁。</p>
+<p>参考资料：</p>
+<p>javascript高级程序设计(第三版)；</p>
 
       
     </div>
@@ -366,7 +426,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://blog.jddfe.com/tmp-bak.html" title="" target="_blank" rel="external">https://blog.jddfe.com/tmp-bak.html</a>
+      <a href="https://blog.jddfe.com/posts/49976.html" title="栈内存堆内存和预处理" target="_blank" rel="external">https://blog.jddfe.com/posts/49976.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -409,6 +469,20 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/28448.html" title="闭包为什么会占用内存"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/31762.html" title="JS 中的事件绑定、事件监听、事件委托"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   
@@ -478,6 +552,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
 
 
 

@@ -17,20 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>JDDFE</title>
-  <meta name="description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JDDFE">
-<meta property="og:url" content="https://blog.jddfe.com/tmp-bak.html">
+  <title>Hexo 双线部署到 Coding 和 GitHub 并实现全站 HTTPS | JDDFE</title>
+  <meta name="description" content="GitHub pages是GitHub提供的一项静态站点托管网页，这里就不过多介绍，由于国内网络原因，访问延迟100-300ms，当然这还是在网络较好的时候，在网络差的情况下会很难加载完全网页，令人头疼，于是，针对这个问题做个大致的解决方案，记录分享下。 本文主要从双线部署和实现https自定义域名两个点做分享，并记录一下其中遇到的坑。 所谓双线部署就是将博客同时发布到 Coding 和 Gith">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 双线部署到 Coding 和 GitHub 并实现全站 HTTPS">
+<meta property="og:url" content="https://blog.jddfe.com/posts/39593.html">
 <meta property="og:site_name" content="JDDFE">
-<meta property="og:description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
+<meta property="og:description" content="GitHub pages是GitHub提供的一项静态站点托管网页，这里就不过多介绍，由于国内网络原因，访问延迟100-300ms，当然这还是在网络较好的时候，在网络差的情况下会很难加载完全网页，令人头疼，于是，针对这个问题做个大致的解决方案，记录分享下。 本文主要从双线部署和实现https自定义域名两个点做分享，并记录一下其中遇到的坑。 所谓双线部署就是将博客同时发布到 Coding 和 Gith">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-15T15:05:10.472Z">
-<meta property="article:modified_time" content="2020-11-15T15:05:10.472Z">
+<meta property="og:image" content="https://blog.jddfe.com/posts/2020-11-11T002543.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/2020-11-11T003205.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/2020-11-11T004326.png">
+<meta property="article:published_time" content="2020-11-09T14:56:25.000Z">
+<meta property="article:modified_time" content="2020-11-17T13:07:00.693Z">
 <meta property="article:author" content="Esmiler">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Github Page">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jddfe.com/posts/2020-11-11T002543.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.jddfe.com/tmp-bak.html">
+  <link rel="canonical" href="https://blog.jddfe.com/posts/39593.html">
   
     <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
   
@@ -327,36 +333,77 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Hexo-双线部署到-Coding-和-GitHub-并实现全站-HTTPS" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo 双线部署到 Coding 和 GitHub 并实现全站 HTTPS
+    </h1>
+  
+
       
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/tmp-bak.html" class="article-date">
-	  <time datetime="2020-11-15T15:05:10.472Z" itemprop="datePublished">2020-11-15</time>
+	<a href="/posts/39593.html" class="article-date">
+	  <time datetime="2020-11-09T14:56:25.000Z" itemprop="datePublished">2020-11-09</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/">折腾不止</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Github-Page/" rel="tag">Github Page</a>, <a class="article-tag-link-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/tmp-bak.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/39593.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 65(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 696(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="关于介绍"><a href="#关于介绍" class="headerlink" title="关于介绍"></a>关于介绍</h4><p>不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。</p>
+        <p>GitHub pages是GitHub提供的一项静态站点托管网页，这里就不过多介绍，由于国内网络原因，访问延迟100-300ms，当然这还是在网络较好的时候，在网络差的情况下会很难加载完全网页，令人头疼，于是，针对这个问题做个大致的解决方案，记录分享下。</p>
+<p>本文主要从双线部署和实现https自定义域名两个点做分享，并记录一下其中遇到的坑。</p>
+<p>所谓双线部署就是将博客同时发布到 Coding 和 Github，博客发布到 Coding 来提升国内访问速度，并可以提交百度收录，GitHub 禁止了百度的爬取，当然可以通过其他方案来解决收录问题，这里就不过多介绍了，感兴趣的可以网上找一下。</p>
+<h2 id="实现双线部署"><a href="#实现双线部署" class="headerlink" title="实现双线部署"></a>实现双线部署</h2><p>首先，你要将 Hexo 成功部署到了 GitHub Pages，如果还没有，可以参考之前的博文专门的教程<a href="/posts/42939.html" title="Hexo5分钟搞定你的个人博客">Hexo5分钟搞定你的个人博客</a></p>
+<p>在成功部署到了 GitHub 后，那么就简单了，关键点就在于发布配置多配置个 Coding 代码库。</p>
+<p>上代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: </span><br><span class="line">    coding: https:&#x2F;&#x2F;e.coding.net&#x2F;团队名&#x2F;项目名&#x2F;代码库.git</span><br><span class="line">    github: https:&#x2F;&#x2F;github.com&#x2F;昵称&#x2F;代码库.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建-Coding-项目"><a href="#创建-Coding-项目" class="headerlink" title="创建 Coding 项目"></a>创建 Coding 项目</h4><p>进入 <a target="_blank" rel="noopener" href="https://coding.net/">Coding</a> 官网，点击登录（如果首次使用，需要创建团队-创建用户-完成注册，安装步骤完成）</p>
+<p><img src="2020-11-11T002543.png" alt="2020-11-11T002543"></p>
+<h5 id="进入后创建项目，选择-DevOps-项目-（比较关键，决定后面能否静态部署）"><a href="#进入后创建项目，选择-DevOps-项目-（比较关键，决定后面能否静态部署）" class="headerlink" title="进入后创建项目，选择 DevOps 项目 （比较关键，决定后面能否静态部署）"></a>进入后创建项目，选择 <code>DevOps 项目</code> （比较关键，决定后面能否静态部署）</h5><h5 id="创建完项目后，新建仓库"><a href="#创建完项目后，新建仓库" class="headerlink" title="创建完项目后，新建仓库"></a>创建完项目后，新建仓库</h5><h5 id="重点这里，新建静态网站"><a href="#重点这里，新建静态网站" class="headerlink" title="重点这里，新建静态网站"></a>重点这里，新建静态网站</h5><p><img src="2020-11-11T003205.png" alt="2020-11-11T003205"></p>
+<p>这里有三种方式：</p>
+<ul>
+<li>代码来源-现有仓库，网站类型-静态网站</li>
+<li>代码来源-现有仓库，网站类型-Hexo/Jekyll</li>
+<li>代码来源-示例仓库，网站类型-Hexo/Jekyll</li>
+</ul>
+<p>区别在于是在本地构建编译，还是云构建编译。最终都是把编译后的代码部署到服务。</p>
+<p>好，到此，上面双部署就算完成。</p>
+<h2 id="自定义域名并HTTPS"><a href="#自定义域名并HTTPS" class="headerlink" title="自定义域名并HTTPS"></a>自定义域名并HTTPS</h2><h4 id="Github-自定义域名"><a href="#Github-自定义域名" class="headerlink" title="Github 自定义域名"></a>Github 自定义域名</h4><p>在 Settings -&gt; GitHub Pages 直接配置 Custom domain。这里要注意一定要在 hexo项目source下新建一个 CNAME 文件，内容为你自定义的域名，解决每次发布的时候 Custom domain 会被重置的问题。</p>
+<h4 id="Coding-自定义域名"><a href="#Coding-自定义域名" class="headerlink" title="Coding 自定义域名"></a>Coding 自定义域名</h4><p>静态网站 -&gt; 自定义域名。</p>
+<p><img src="2020-11-11T004326.png" alt="2020-11-11T004326"></p>
+<p>配置同时需要生产SSL证书，并且需要做域名解析的配置。</p>
+<p>至此，我们的 Hexo 博客就成功双线部署到 Coding Pages 和 GitHub Pages 了，并且也实现了全站 HPPTS。完成配置后你会明显发现速度的变化。</p>
 
       
     </div>
@@ -366,7 +413,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://blog.jddfe.com/tmp-bak.html" title="" target="_blank" rel="external">https://blog.jddfe.com/tmp-bak.html</a>
+      <a href="https://blog.jddfe.com/posts/39593.html" title="Hexo 双线部署到 Coding 和 GitHub 并实现全站 HTTPS" target="_blank" rel="external">https://blog.jddfe.com/posts/39593.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -409,6 +456,20 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/49523.html" title="防抖、节流及应用场景"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/28448.html" title="闭包为什么会占用内存"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   
@@ -478,6 +539,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
 
 
 

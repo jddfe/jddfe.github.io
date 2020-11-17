@@ -17,20 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>JDDFE</title>
-  <meta name="description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JDDFE">
-<meta property="og:url" content="https://blog.jddfe.com/tmp-bak.html">
+  <title>OOP之原型与原型链 | JDDFE</title>
+  <meta name="description" content="prototype原型对象  每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象 在构造函数中的prototype中定义的属性和方法，会被创建的对象所继承下来。举个栗子：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOP之原型与原型链">
+<meta property="og:url" content="https://blog.jddfe.com/posts/65309.html">
 <meta property="og:site_name" content="JDDFE">
-<meta property="og:description" content="关于介绍不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。">
+<meta property="og:description" content="prototype原型对象  每个函数都有一个默认的prototype属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象 在构造函数中的prototype中定义的属性和方法，会被创建的对象所继承下来。举个栗子：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-15T15:05:10.472Z">
-<meta property="article:modified_time" content="2020-11-15T15:05:10.472Z">
+<meta property="og:image" content="https://blog.jddfe.com/posts/T155728.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/T155751.png">
+<meta property="article:published_time" content="2016-08-17T12:40:20.000Z">
+<meta property="article:modified_time" content="2020-11-17T12:54:33.338Z">
 <meta property="article:author" content="Esmiler">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="原型链">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jddfe.com/posts/T155728.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.jddfe.com/tmp-bak.html">
+  <link rel="canonical" href="https://blog.jddfe.com/posts/65309.html">
   
     <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
   
@@ -327,36 +333,84 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-OOP之原型与原型链" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OOP之原型与原型链
+    </h1>
+  
+
       
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/tmp-bak.html" class="article-date">
-	  <time datetime="2020-11-15T15:05:10.472Z" itemprop="datePublished">2020-11-15</time>
+	<a href="/posts/65309.html" class="article-date">
+	  <time datetime="2016-08-17T12:40:20.000Z" itemprop="datePublished">2016-08-17</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型链</a>, <a class="article-tag-link-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/tmp-bak.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/65309.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 65(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 549(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="关于介绍"><a href="#关于介绍" class="headerlink" title="关于介绍"></a>关于介绍</h4><p>不是一个人（不是人），而是一个组织。招募热爱前端开发及用户体验设计，喜欢新事物，关注前端动态，对新的技术有追求， 喜欢产品，喜欢Coding 的你一起加入。</p>
+        <h4 id="prototype原型对象"><a href="#prototype原型对象" class="headerlink" title="prototype原型对象"></a>prototype原型对象</h4><hr>
+<ul>
+<li>每个函数都有一个默认的<code>prototype</code>属性，其实际上还是一个对象，如果被用在继承中，姑且叫做原型对象</li>
+<li>在构造函数中的<code>prototype</code>中定义的属性和方法，会被创建的对象所继承下来。举个栗子：<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">F.prototype.work = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;F is working..&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line">f.work(); <span class="comment">// F is working..</span></span><br></pre></td></tr></table></figure></li>
+<li>当你创建函数时，<code>JS</code>会为这个函数自动添加 <code>prototype</code> 属性，值是空对象。而一旦你把这个函数当作构造函数（ <code>constructor</code> ）调用（即通过 <code>new </code>关键字调用），那么<code>JS</code>就会帮你创建该构造函数的实例，实例继承构造函数 <code>prototype</code> 的所有属性和方法（实例通过设置自己的<code> __proto__</code> 指向构造函数的 <code>prototype</code> 来实现这种继承）</li>
+</ul>
+<h4 id="神秘的proto"><a href="#神秘的proto" class="headerlink" title="神秘的proto"></a>神秘的<strong>proto</strong></h4><hr>
+<ul>
+<li><code>JS</code>的对象中都包含了一个<code>__proto__</code>属性，其指向的是创建该对象时的构造函数的原型对象<code>prototype</code></li>
+</ul>
+<p><img src="T155728.png" alt="T155728"></p>
+<ul>
+<li>从上面的输出结果看出，<code>f.__proto__</code>指向了其构造函数<code>F</code>的<code>prototype</code>，而<code>F.prototype</code>本身也是一个对象，其内部也有<code>__proto__</code>属性，其指向的是<code>Object.prototype</code>,直到最后<code>Object.prototype</code>指向<code>null</code>，这条原型链才结束</li>
+<li>因此，<code>__proto__</code>这个神秘的属性才是原型链形成的真正原因</li>
+</ul>
+<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><hr>
+<ul>
+<li>由于原型对象本身也是对象，根据上边的定义，它也有自己的原型，而它自己的原型对象又可以有自己的原型，这样就组成了一条链，这个就是原型链，<code>JavaScritp</code>引擎在访问对象的属性时，如果在对象本身中没有找到，则会去原型链中查找，如果找到，直接返回值，如果整个链都遍历且没有找到属性，则返回<code>undefined</code>。原型链一般实现为一个链表，这样就可以按照一定的顺序来查找</li>
+</ul>
+<p><img src="T155751.png" alt="T155751"></p>
+<ul>
+<li><p>从上图看出：</p>
+<ul>
+<li><code>Object.prototype</code>是顶级对象，所有对象都继承自它。</li>
+<li><code>Function </code>继承 <code>Function </code>本身， <code>Function.prototype</code> 继承 <code>Object.prototype </code></li>
+<li><code>Function.prototype</code> 和 <code>Function.__proto__</code> 都指向 <code>Function.prototype</code></li>
+<li><code>Object.prototype.__proto__ === null</code> ，说明原型链到 <code>Object.prototype</code>终止</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -366,7 +420,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://blog.jddfe.com/tmp-bak.html" title="" target="_blank" rel="external">https://blog.jddfe.com/tmp-bak.html</a>
+      <a href="https://blog.jddfe.com/posts/65309.html" title="OOP之原型与原型链" target="_blank" rel="external">https://blog.jddfe.com/posts/65309.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -409,6 +463,20 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/31762.html" title="JS 中的事件绑定、事件监听、事件委托"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/14581.html" title="OOP之面向对象"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   
@@ -478,6 +546,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
 
 
 
