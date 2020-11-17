@@ -200,7 +200,14 @@
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    <loc>https://blog.jddfe.com/tags/%E4%BA%8B%E4%BB%B6/</loc>
+    <lastmod>2020-11-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/event/</loc>
     <lastmod>2020-11-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -214,14 +221,7 @@
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/tags/%E4%BA%8B%E4%BB%B6/</loc>
-    <lastmod>2020-11-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/event/</loc>
+    <loc>https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
     <lastmod>2020-11-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
