@@ -6,7 +6,7 @@
   <link href="https://blog.jddfe.com/atom.xml" rel="self"/>
   
   <link href="https://blog.jddfe.com/"/>
-  <updated>2020-11-17T12:54:33.343Z</updated>
+  <updated>2020-11-18T04:56:46.137Z</updated>
   <id>https://blog.jddfe.com/</id>
   
   <author>
@@ -17,9 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>假如互联网大佬们去摆摊</title>
+    <link href="https://blog.jddfe.com/posts/14122/"/>
+    <id>https://blog.jddfe.com/posts/14122/</id>
+    <published>2020-11-17T20:50:14.000Z</published>
+    <updated>2020-11-18T04:56:46.137Z</updated>
+    
+    <content type="html"><![CDATA[<p>假如互联网大佬们去摆摊…</p><p>时光如果倒流，英雄莫问出处</p><blockquote><p>转自微博-我是K董</p></blockquote><p><img src="2020-11-18T125307.JPG" alt="2020-11-18T125307"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;假如互联网大佬们去摆摊…&lt;/p&gt;
+&lt;p&gt;时光如果倒流，英雄莫问出处&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;转自微博-我是K董&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;2020-11-18T125307.JPG&quot; alt=&quot;2020-11-18T125</summary>
+      
+    
+    
+    
+    <category term="每日最佳" scheme="https://blog.jddfe.com/categories/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/"/>
+    
+    
+    <category term="每日最佳" scheme="https://blog.jddfe.com/tags/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/"/>
+    
+    <category term="全民摆摊" scheme="https://blog.jddfe.com/tags/%E5%85%A8%E6%B0%91%E6%91%86%E6%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基金投资新手入门科普宝典</title>
-    <link href="https://blog.jddfe.com/posts/56721.html"/>
-    <id>https://blog.jddfe.com/posts/56721.html</id>
+    <link href="https://blog.jddfe.com/posts/56721/"/>
+    <id>https://blog.jddfe.com/posts/56721/</id>
     <published>2020-11-14T15:06:10.000Z</published>
     <updated>2020-11-17T12:54:33.343Z</updated>
     
@@ -49,8 +80,8 @@
   
   <entry>
     <title>防抖、节流及应用场景</title>
-    <link href="https://blog.jddfe.com/posts/49523.html"/>
-    <id>https://blog.jddfe.com/posts/49523.html</id>
+    <link href="https://blog.jddfe.com/posts/49523/"/>
+    <id>https://blog.jddfe.com/posts/49523/</id>
     <published>2020-11-11T14:27:28.000Z</published>
     <updated>2020-11-17T12:54:33.351Z</updated>
     
@@ -76,12 +107,12 @@
   
   <entry>
     <title>Hexo 双线部署到 Coding 和 GitHub 并实现全站 HTTPS</title>
-    <link href="https://blog.jddfe.com/posts/39593.html"/>
-    <id>https://blog.jddfe.com/posts/39593.html</id>
+    <link href="https://blog.jddfe.com/posts/39593/"/>
+    <id>https://blog.jddfe.com/posts/39593/</id>
     <published>2020-11-09T14:56:25.000Z</published>
     <updated>2020-11-17T13:07:00.693Z</updated>
     
-    <content type="html"><![CDATA[<p>GitHub pages是GitHub提供的一项静态站点托管网页，这里就不过多介绍，由于国内网络原因，访问延迟100-300ms，当然这还是在网络较好的时候，在网络差的情况下会很难加载完全网页，令人头疼，于是，针对这个问题做个大致的解决方案，记录分享下。</p><p>本文主要从双线部署和实现https自定义域名两个点做分享，并记录一下其中遇到的坑。</p><p>所谓双线部署就是将博客同时发布到 Coding 和 Github，博客发布到 Coding 来提升国内访问速度，并可以提交百度收录，GitHub 禁止了百度的爬取，当然可以通过其他方案来解决收录问题，这里就不过多介绍了，感兴趣的可以网上找一下。</p><h2 id="实现双线部署"><a href="#实现双线部署" class="headerlink" title="实现双线部署"></a>实现双线部署</h2><p>首先，你要将 Hexo 成功部署到了 GitHub Pages，如果还没有，可以参考之前的博文专门的教程<a href="/posts/42939.html" title="Hexo5分钟搞定你的个人博客">Hexo5分钟搞定你的个人博客</a></p><p>在成功部署到了 GitHub 后，那么就简单了，关键点就在于发布配置多配置个 Coding 代码库。</p><p>上代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: </span><br><span class="line">    coding: https:&#x2F;&#x2F;e.coding.net&#x2F;团队名&#x2F;项目名&#x2F;代码库.git</span><br><span class="line">    github: https:&#x2F;&#x2F;github.com&#x2F;昵称&#x2F;代码库.git</span><br></pre></td></tr></table></figure><h4 id="创建-Coding-项目"><a href="#创建-Coding-项目" class="headerlink" title="创建 Coding 项目"></a>创建 Coding 项目</h4><p>进入 <a href="https://coding.net/">Coding</a> 官网，点击登录（如果首次使用，需要创建团队-创建用户-完成注册，安装步骤完成）</p><p><img src="2020-11-11T002543.png" alt="2020-11-11T002543"></p><h5 id="进入后创建项目，选择-DevOps-项目-（比较关键，决定后面能否静态部署）"><a href="#进入后创建项目，选择-DevOps-项目-（比较关键，决定后面能否静态部署）" class="headerlink" title="进入后创建项目，选择 DevOps 项目 （比较关键，决定后面能否静态部署）"></a>进入后创建项目，选择 <code>DevOps 项目</code> （比较关键，决定后面能否静态部署）</h5><h5 id="创建完项目后，新建仓库"><a href="#创建完项目后，新建仓库" class="headerlink" title="创建完项目后，新建仓库"></a>创建完项目后，新建仓库</h5><h5 id="重点这里，新建静态网站"><a href="#重点这里，新建静态网站" class="headerlink" title="重点这里，新建静态网站"></a>重点这里，新建静态网站</h5><p><img src="2020-11-11T003205.png" alt="2020-11-11T003205"></p><p>这里有三种方式：</p><ul><li>代码来源-现有仓库，网站类型-静态网站</li><li>代码来源-现有仓库，网站类型-Hexo/Jekyll</li><li>代码来源-示例仓库，网站类型-Hexo/Jekyll</li></ul><p>区别在于是在本地构建编译，还是云构建编译。最终都是把编译后的代码部署到服务。</p><p>好，到此，上面双部署就算完成。</p><h2 id="自定义域名并HTTPS"><a href="#自定义域名并HTTPS" class="headerlink" title="自定义域名并HTTPS"></a>自定义域名并HTTPS</h2><h4 id="Github-自定义域名"><a href="#Github-自定义域名" class="headerlink" title="Github 自定义域名"></a>Github 自定义域名</h4><p>在 Settings -&gt; GitHub Pages 直接配置 Custom domain。这里要注意一定要在 hexo项目source下新建一个 CNAME 文件，内容为你自定义的域名，解决每次发布的时候 Custom domain 会被重置的问题。</p><h4 id="Coding-自定义域名"><a href="#Coding-自定义域名" class="headerlink" title="Coding 自定义域名"></a>Coding 自定义域名</h4><p>静态网站 -&gt; 自定义域名。</p><p><img src="2020-11-11T004326.png" alt="2020-11-11T004326"></p><p>配置同时需要生产SSL证书，并且需要做域名解析的配置。</p><p>至此，我们的 Hexo 博客就成功双线部署到 Coding Pages 和 GitHub Pages 了，并且也实现了全站 HPPTS。完成配置后你会明显发现速度的变化。</p>]]></content>
+    <content type="html"><![CDATA[<p>GitHub pages是GitHub提供的一项静态站点托管网页，这里就不过多介绍，由于国内网络原因，访问延迟100-300ms，当然这还是在网络较好的时候，在网络差的情况下会很难加载完全网页，令人头疼，于是，针对这个问题做个大致的解决方案，记录分享下。</p><p>本文主要从双线部署和实现https自定义域名两个点做分享，并记录一下其中遇到的坑。</p><p>所谓双线部署就是将博客同时发布到 Coding 和 Github，博客发布到 Coding 来提升国内访问速度，并可以提交百度收录，GitHub 禁止了百度的爬取，当然可以通过其他方案来解决收录问题，这里就不过多介绍了，感兴趣的可以网上找一下。</p><h2 id="实现双线部署"><a href="#实现双线部署" class="headerlink" title="实现双线部署"></a>实现双线部署</h2><p>首先，你要将 Hexo 成功部署到了 GitHub Pages，如果还没有，可以参考之前的博文专门的教程<a href="/posts/42939/" title="Hexo5分钟搞定你的个人博客">Hexo5分钟搞定你的个人博客</a></p><p>在成功部署到了 GitHub 后，那么就简单了，关键点就在于发布配置多配置个 Coding 代码库。</p><p>上代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: </span><br><span class="line">    coding: https:&#x2F;&#x2F;e.coding.net&#x2F;团队名&#x2F;项目名&#x2F;代码库.git</span><br><span class="line">    github: https:&#x2F;&#x2F;github.com&#x2F;昵称&#x2F;代码库.git</span><br></pre></td></tr></table></figure><h4 id="创建-Coding-项目"><a href="#创建-Coding-项目" class="headerlink" title="创建 Coding 项目"></a>创建 Coding 项目</h4><p>进入 <a href="https://coding.net/">Coding</a> 官网，点击登录（如果首次使用，需要创建团队-创建用户-完成注册，安装步骤完成）</p><p><img src="2020-11-11T002543.png" alt="2020-11-11T002543"></p><h5 id="进入后创建项目，选择-DevOps-项目-（比较关键，决定后面能否静态部署）"><a href="#进入后创建项目，选择-DevOps-项目-（比较关键，决定后面能否静态部署）" class="headerlink" title="进入后创建项目，选择 DevOps 项目 （比较关键，决定后面能否静态部署）"></a>进入后创建项目，选择 <code>DevOps 项目</code> （比较关键，决定后面能否静态部署）</h5><h5 id="创建完项目后，新建仓库"><a href="#创建完项目后，新建仓库" class="headerlink" title="创建完项目后，新建仓库"></a>创建完项目后，新建仓库</h5><h5 id="重点这里，新建静态网站"><a href="#重点这里，新建静态网站" class="headerlink" title="重点这里，新建静态网站"></a>重点这里，新建静态网站</h5><p><img src="2020-11-11T003205.png" alt="2020-11-11T003205"></p><p>这里有三种方式：</p><ul><li>代码来源-现有仓库，网站类型-静态网站</li><li>代码来源-现有仓库，网站类型-Hexo/Jekyll</li><li>代码来源-示例仓库，网站类型-Hexo/Jekyll</li></ul><p>区别在于是在本地构建编译，还是云构建编译。最终都是把编译后的代码部署到服务。</p><p>好，到此，上面双部署就算完成。</p><h2 id="自定义域名并HTTPS"><a href="#自定义域名并HTTPS" class="headerlink" title="自定义域名并HTTPS"></a>自定义域名并HTTPS</h2><h4 id="Github-自定义域名"><a href="#Github-自定义域名" class="headerlink" title="Github 自定义域名"></a>Github 自定义域名</h4><p>在 Settings -&gt; GitHub Pages 直接配置 Custom domain。这里要注意一定要在 hexo项目source下新建一个 CNAME 文件，内容为你自定义的域名，解决每次发布的时候 Custom domain 会被重置的问题。</p><h4 id="Coding-自定义域名"><a href="#Coding-自定义域名" class="headerlink" title="Coding 自定义域名"></a>Coding 自定义域名</h4><p>静态网站 -&gt; 自定义域名。</p><p><img src="2020-11-11T004326.png" alt="2020-11-11T004326"></p><p>配置同时需要生产SSL证书，并且需要做域名解析的配置。</p><p>至此，我们的 Hexo 博客就成功双线部署到 Coding Pages 和 GitHub Pages 了，并且也实现了全站 HPPTS。完成配置后你会明显发现速度的变化。</p>]]></content>
     
     
       
@@ -103,18 +134,18 @@
   
   <entry>
     <title>闭包为什么会占用内存</title>
-    <link href="https://blog.jddfe.com/posts/28448.html"/>
-    <id>https://blog.jddfe.com/posts/28448.html</id>
+    <link href="https://blog.jddfe.com/posts/28448/"/>
+    <id>https://blog.jddfe.com/posts/28448/</id>
     <published>2016-09-03T14:16:54.000Z</published>
     <updated>2020-11-17T12:54:33.349Z</updated>
     
-    <content type="html"><![CDATA[<p>在试图弄清这个问题之前，先要理解<a href="/posts/49976.html" title="栈内存堆内存和预处理">栈内存堆内存和预处理</a></p><h2 id="占用内存，不会销毁的闭包实例"><a href="#占用内存，不会销毁的闭包实例" class="headerlink" title="占用内存，不会销毁的闭包实例"></a>占用内存，不会销毁的闭包实例</h2><h3 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure><p>例1的图示</p><p><img src="T162925.png" alt="T162925"></p><p><strong>未被占用的堆内存才会被销毁</strong></p><p>所以，正如图中椭圆形关键点中说明的那样，堆内存xxxfff111被返回给了全局变量f，而全局变量只有在窗口关闭的时候才会销毁，<strong>因此堆内存xxxfff111将一直被占用而不会销毁</strong>，定义它的局部作用域A也不会被销毁。</p><h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;div1&quot;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    oDiv.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure><p>这段代码的特点是：私有作用域给dom元素的事件绑定一个方法。</p><p>例2的图示：</p><p><img src="T163019.png" alt="T163019"></p><p>正如图中椭圆形关键点所说，标签对象的属性里面会自带一个onclick的属性，未被赋值时其值为null。那么，在自执行函数执行的时候，其创建的作用域所占用的堆内存xxxfff111同样也会被全局的堆内存xxxfff000占用（这里要注意，是堆内存占用堆内存），所以堆内存xxxfff111和栈内存A都不会被销毁。</p><h2 id="不占用内存，立即销毁的实例"><a href="#不占用内存，立即销毁的实例" class="headerlink" title="不占用内存，立即销毁的实例"></a>不占用内存，立即销毁的实例</h2><p>只需要将例1稍作修改。</p><h3 id="例3："><a href="#例3：" class="headerlink" title="例3："></a>例3：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">    var num &#x3D; 100;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        console.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn();&#x2F;&#x2F;主要修改在这里</span><br></pre></td></tr></table></figure><p>例3的图示</p><p><img src="T163106.png" alt="T163106"></p><p>由于在函数fn中，xxxfff111是被return的，所以栈内存A的预解释不会处理xxxfff111，它只在fn函数执行的时候才会生成，而函数fn的栈内存A每次被执行之后都会被销毁。</p><h2 id="暂时占用内存，延时销毁的闭包实例"><a href="#暂时占用内存，延时销毁的闭包实例" class="headerlink" title="暂时占用内存，延时销毁的闭包实例"></a>暂时占用内存，延时销毁的闭包实例</h2><p>将例3稍作修改，就变成了延时销毁的闭包实例。</p><h3 id="例4："><a href="#例4：" class="headerlink" title="例4："></a>例4：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn()();<span class="comment">//这里到底发生了什么？其实是执行了一次fn之后，把返回的子函数有执行了一次，所以在子函数执行的时候，栈内存fn()是不能销毁的，但是子函数执行完毕后因为没有被占用，所以最终还是要被销毁的，所以最终fn()还是会被销毁的。</span></span><br></pre></td></tr></table></figure><p>例4的图示：</p><p><img src="T163156.png" alt="T163156"></p><p>正如途中椭圆形关键点处所说，<code>fn()()</code>的意思是在执行完<code>fn()</code>之后再把返回的值函数执行一遍。因此在子函数执行的时候，堆内存xxxfff111被占用了，相应的栈内存A也将保留。</p><p>可堆内存xxxfff111中保存的子函数在执行完成之后还是会被销毁，接着堆内存xxxfff111就作为未被占用的堆内存而被销毁，最终栈内存A也会被销毁。</p><p>所以，栈内存在执行完之后会被保留一段时间，这段时间等于其子函数执行的时间。</p><p>参考资料：</p><p>javascript高级程序设计(第三版)。</p>]]></content>
+    <content type="html"><![CDATA[<p>在试图弄清这个问题之前，先要理解<a href="/posts/49976/" title="栈内存堆内存和预处理">栈内存堆内存和预处理</a></p><h2 id="占用内存，不会销毁的闭包实例"><a href="#占用内存，不会销毁的闭包实例" class="headerlink" title="占用内存，不会销毁的闭包实例"></a>占用内存，不会销毁的闭包实例</h2><h3 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure><p>例1的图示</p><p><img src="T162925.png" alt="T162925"></p><p><strong>未被占用的堆内存才会被销毁</strong></p><p>所以，正如图中椭圆形关键点中说明的那样，堆内存xxxfff111被返回给了全局变量f，而全局变量只有在窗口关闭的时候才会销毁，<strong>因此堆内存xxxfff111将一直被占用而不会销毁</strong>，定义它的局部作用域A也不会被销毁。</p><h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;div1&quot;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    oDiv.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure><p>这段代码的特点是：私有作用域给dom元素的事件绑定一个方法。</p><p>例2的图示：</p><p><img src="T163019.png" alt="T163019"></p><p>正如图中椭圆形关键点所说，标签对象的属性里面会自带一个onclick的属性，未被赋值时其值为null。那么，在自执行函数执行的时候，其创建的作用域所占用的堆内存xxxfff111同样也会被全局的堆内存xxxfff000占用（这里要注意，是堆内存占用堆内存），所以堆内存xxxfff111和栈内存A都不会被销毁。</p><h2 id="不占用内存，立即销毁的实例"><a href="#不占用内存，立即销毁的实例" class="headerlink" title="不占用内存，立即销毁的实例"></a>不占用内存，立即销毁的实例</h2><p>只需要将例1稍作修改。</p><h3 id="例3："><a href="#例3：" class="headerlink" title="例3："></a>例3：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">    var num &#x3D; 100;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        console.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn();&#x2F;&#x2F;主要修改在这里</span><br></pre></td></tr></table></figure><p>例3的图示</p><p><img src="T163106.png" alt="T163106"></p><p>由于在函数fn中，xxxfff111是被return的，所以栈内存A的预解释不会处理xxxfff111，它只在fn函数执行的时候才会生成，而函数fn的栈内存A每次被执行之后都会被销毁。</p><h2 id="暂时占用内存，延时销毁的闭包实例"><a href="#暂时占用内存，延时销毁的闭包实例" class="headerlink" title="暂时占用内存，延时销毁的闭包实例"></a>暂时占用内存，延时销毁的闭包实例</h2><p>将例3稍作修改，就变成了延时销毁的闭包实例。</p><h3 id="例4："><a href="#例4：" class="headerlink" title="例4："></a>例4：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn()();<span class="comment">//这里到底发生了什么？其实是执行了一次fn之后，把返回的子函数有执行了一次，所以在子函数执行的时候，栈内存fn()是不能销毁的，但是子函数执行完毕后因为没有被占用，所以最终还是要被销毁的，所以最终fn()还是会被销毁的。</span></span><br></pre></td></tr></table></figure><p>例4的图示：</p><p><img src="T163156.png" alt="T163156"></p><p>正如途中椭圆形关键点处所说，<code>fn()()</code>的意思是在执行完<code>fn()</code>之后再把返回的值函数执行一遍。因此在子函数执行的时候，堆内存xxxfff111被占用了，相应的栈内存A也将保留。</p><p>可堆内存xxxfff111中保存的子函数在执行完成之后还是会被销毁，接着堆内存xxxfff111就作为未被占用的堆内存而被销毁，最终栈内存A也会被销毁。</p><p>所以，栈内存在执行完之后会被保留一段时间，这段时间等于其子函数执行的时间。</p><p>参考资料：</p><p>javascript高级程序设计(第三版)。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;在试图弄清这个问题之前，先要理解&lt;a href=&quot;/posts/49976.html&quot; title=&quot;栈内存堆内存和预处理&quot;&gt;栈内存堆内存和预处理&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;占用内存，不会销毁的闭包实例&quot;&gt;&lt;a href=&quot;#占用内存，不会销毁的闭包实例&quot; class</summary>
+    <summary type="html">&lt;p&gt;在试图弄清这个问题之前，先要理解&lt;a href=&quot;/posts/49976/&quot; title=&quot;栈内存堆内存和预处理&quot;&gt;栈内存堆内存和预处理&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;占用内存，不会销毁的闭包实例&quot;&gt;&lt;a href=&quot;#占用内存，不会销毁的闭包实例&quot; class=&quot;he</summary>
       
     
     
@@ -132,8 +163,8 @@
   
   <entry>
     <title>栈内存堆内存和预处理</title>
-    <link href="https://blog.jddfe.com/posts/49976.html"/>
-    <id>https://blog.jddfe.com/posts/49976.html</id>
+    <link href="https://blog.jddfe.com/posts/49976/"/>
+    <id>https://blog.jddfe.com/posts/49976/</id>
     <published>2016-09-02T14:10:54.000Z</published>
     <updated>2020-11-17T12:54:33.344Z</updated>
     
@@ -162,8 +193,8 @@
   
   <entry>
     <title>JS 中的事件绑定、事件监听、事件委托</title>
-    <link href="https://blog.jddfe.com/posts/31762.html"/>
-    <id>https://blog.jddfe.com/posts/31762.html</id>
+    <link href="https://blog.jddfe.com/posts/31762/"/>
+    <id>https://blog.jddfe.com/posts/31762/</id>
     <published>2016-08-18T12:50:14.000Z</published>
     <updated>2020-11-17T12:54:33.333Z</updated>
     
@@ -181,18 +212,18 @@
     
     <category term="javascript" scheme="https://blog.jddfe.com/tags/javascript/"/>
     
-    <category term="学习笔记" scheme="https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="事件" scheme="https://blog.jddfe.com/tags/%E4%BA%8B%E4%BB%B6/"/>
     
     <category term="event" scheme="https://blog.jddfe.com/tags/event/"/>
+    
+    <category term="学习笔记" scheme="https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>OOP之原型与原型链</title>
-    <link href="https://blog.jddfe.com/posts/65309.html"/>
-    <id>https://blog.jddfe.com/posts/65309.html</id>
+    <link href="https://blog.jddfe.com/posts/65309/"/>
+    <id>https://blog.jddfe.com/posts/65309/</id>
     <published>2016-08-17T12:40:20.000Z</published>
     <updated>2020-11-17T12:54:33.338Z</updated>
     
@@ -211,16 +242,16 @@
     
     <category term="javascript" scheme="https://blog.jddfe.com/tags/javascript/"/>
     
-    <category term="原型链" scheme="https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    
     <category term="学习笔记" scheme="https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="原型链" scheme="https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     
   </entry>
   
   <entry>
     <title>OOP之面向对象</title>
-    <link href="https://blog.jddfe.com/posts/14581.html"/>
-    <id>https://blog.jddfe.com/posts/14581.html</id>
+    <link href="https://blog.jddfe.com/posts/14581/"/>
+    <id>https://blog.jddfe.com/posts/14581/</id>
     <published>2016-08-16T12:26:24.000Z</published>
     <updated>2020-11-17T12:54:33.341Z</updated>
     
@@ -248,8 +279,8 @@
   
   <entry>
     <title>OOP之类与对象</title>
-    <link href="https://blog.jddfe.com/posts/10937.html"/>
-    <id>https://blog.jddfe.com/posts/10937.html</id>
+    <link href="https://blog.jddfe.com/posts/10937/"/>
+    <id>https://blog.jddfe.com/posts/10937/</id>
     <published>2016-08-15T12:55:24.000Z</published>
     <updated>2020-11-17T12:54:33.340Z</updated>
     
@@ -275,8 +306,8 @@
   
   <entry>
     <title>移动端自适应适配实现方案</title>
-    <link href="https://blog.jddfe.com/posts/14854.html"/>
-    <id>https://blog.jddfe.com/posts/14854.html</id>
+    <link href="https://blog.jddfe.com/posts/14854/"/>
+    <id>https://blog.jddfe.com/posts/14854/</id>
     <published>2016-06-16T07:21:47.000Z</published>
     <updated>2020-11-17T12:54:33.346Z</updated>
     
@@ -304,8 +335,8 @@
   
   <entry>
     <title>ES6从入门到精通之常量与变量(一)</title>
-    <link href="https://blog.jddfe.com/posts/63881.html"/>
-    <id>https://blog.jddfe.com/posts/63881.html</id>
+    <link href="https://blog.jddfe.com/posts/63881/"/>
+    <id>https://blog.jddfe.com/posts/63881/</id>
     <published>2016-04-03T12:30:22.000Z</published>
     <updated>2020-11-17T12:54:33.327Z</updated>
     
@@ -331,8 +362,8 @@
   
   <entry>
     <title>初探ES6新功能</title>
-    <link href="https://blog.jddfe.com/posts/15295.html"/>
-    <id>https://blog.jddfe.com/posts/15295.html</id>
+    <link href="https://blog.jddfe.com/posts/15295/"/>
+    <id>https://blog.jddfe.com/posts/15295/</id>
     <published>2016-04-02T12:09:10.000Z</published>
     <updated>2020-11-17T12:54:33.353Z</updated>
     
@@ -357,8 +388,8 @@
   
   <entry>
     <title>Git常用命令备忘手册</title>
-    <link href="https://blog.jddfe.com/posts/60855.html"/>
-    <id>https://blog.jddfe.com/posts/60855.html</id>
+    <link href="https://blog.jddfe.com/posts/60855/"/>
+    <id>https://blog.jddfe.com/posts/60855/</id>
     <published>2016-03-10T12:55:10.000Z</published>
     <updated>2020-11-17T12:54:33.329Z</updated>
     
@@ -382,8 +413,8 @@
   
   <entry>
     <title>Hexo5分钟搞定你的个人博客</title>
-    <link href="https://blog.jddfe.com/posts/42939.html"/>
-    <id>https://blog.jddfe.com/posts/42939.html</id>
+    <link href="https://blog.jddfe.com/posts/42939/"/>
+    <id>https://blog.jddfe.com/posts/42939/</id>
     <published>2016-02-28T12:26:41.000Z</published>
     <updated>2020-11-17T13:04:09.906Z</updated>
     

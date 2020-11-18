@@ -2,98 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.jddfe.com/posts/39593.html</loc>
+    <loc>https://blog.jddfe.com/posts/14122/</loc>
+    
+    <lastmod>2020-11-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/posts/39593/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/42939.html</loc>
+    <loc>https://blog.jddfe.com/posts/42939/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/15295.html</loc>
+    <loc>https://blog.jddfe.com/posts/15295/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/49523.html</loc>
+    <loc>https://blog.jddfe.com/posts/49523/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/28448.html</loc>
+    <loc>https://blog.jddfe.com/posts/28448/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/14854.html</loc>
+    <loc>https://blog.jddfe.com/posts/14854/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/49976.html</loc>
+    <loc>https://blog.jddfe.com/posts/49976/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/56721.html</loc>
+    <loc>https://blog.jddfe.com/posts/56721/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/14581.html</loc>
+    <loc>https://blog.jddfe.com/posts/14581/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/10937.html</loc>
+    <loc>https://blog.jddfe.com/posts/10937/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/65309.html</loc>
+    <loc>https://blog.jddfe.com/posts/65309/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/31762.html</loc>
+    <loc>https://blog.jddfe.com/posts/31762/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/60855.html</loc>
+    <loc>https://blog.jddfe.com/posts/60855/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/posts/63881.html</loc>
+    <loc>https://blog.jddfe.com/posts/63881/</loc>
     
     <lastmod>2020-11-17</lastmod>
     
@@ -121,6 +128,13 @@
   </url>
   
   <url>
+    <loc>https://blog.jddfe.com/categories/index.html</loc>
+    
+    <lastmod>2020-11-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.jddfe.com/books/index.html</loc>
     
     <lastmod>2020-11-09</lastmod>
@@ -129,13 +143,6 @@
   
   <url>
     <loc>https://blog.jddfe.com/links/index.html</loc>
-    
-    <lastmod>2020-11-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/categories/index.html</loc>
     
     <lastmod>2020-11-09</lastmod>
     
@@ -200,20 +207,6 @@
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.jddfe.com/tags/%E4%BA%8B%E4%BB%B6/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -228,7 +221,49 @@
   </url>
   
   <url>
+    <loc>https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.jddfe.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/%E5%85%A8%E6%B0%91%E6%91%86%E6%91%8A/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/Javascript/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/%E6%A0%88%E5%92%8C%E5%A0%86/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -250,20 +285,6 @@
   
   <url>
     <loc>https://blog.jddfe.com/tags/%E6%8A%95%E8%B5%84/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/Javascript/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/%E6%A0%88%E5%92%8C%E5%A0%86/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -329,6 +350,13 @@
   
   <url>
     <loc>https://blog.jddfe.com/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/categories/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
