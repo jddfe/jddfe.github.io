@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.jddfe.com/posts/21156/</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.jddfe.com/posts/14885/</loc>
     
     <lastmod>2020-11-26</lastmod>
@@ -10,13 +17,6 @@
   
   <url>
     <loc>https://blog.jddfe.com/posts/60230/</loc>
-    
-    <lastmod>2020-11-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/posts/21156/</loc>
     
     <lastmod>2020-11-26</lastmod>
     
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/links/index.html</loc>
+    <loc>https://blog.jddfe.com/categories/index.html</loc>
     
     <lastmod>2020-11-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/categories/index.html</loc>
+    <loc>https://blog.jddfe.com/links/index.html</loc>
     
     <lastmod>2020-11-09</lastmod>
     
@@ -184,6 +184,20 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/ES6/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/JS/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
   <url>
     <loc>https://blog.jddfe.com/tags/Git/</loc>
@@ -207,20 +221,6 @@
   </url>
   
   <url>
-    <loc>https://blog.jddfe.com/tags/ES6/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/JS/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.jddfe.com/tags/Hexo-GitPage/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
@@ -229,20 +229,6 @@
   
   <url>
     <loc>https://blog.jddfe.com/tags/javascript/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -263,6 +249,20 @@
   </url>
   
   <url>
+    <loc>https://blog.jddfe.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.jddfe.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
@@ -271,20 +271,6 @@
   
   <url>
     <loc>https://blog.jddfe.com/tags/%E4%B8%80%E9%A9%AC%E5%B8%81%E6%A1%88/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/Javascript/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/tags/%E6%A0%88%E5%92%8C%E5%A0%86/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -320,6 +306,20 @@
   
   <url>
     <loc>https://blog.jddfe.com/tags/%E6%8A%95%E8%B5%84/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/Javascript/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.jddfe.com/tags/%E6%A0%88%E5%92%8C%E5%A0%86/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,6 +391,13 @@
 
   
   <url>
+    <loc>https://blog.jddfe.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.jddfe.com/categories/Git/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
@@ -399,13 +406,6 @@
   
   <url>
     <loc>https://blog.jddfe.com/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/</loc>
-    <lastmod>2020-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.jddfe.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
