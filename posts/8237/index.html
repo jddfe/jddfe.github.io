@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>一个快速，零配置的 Web 应用打包工具 📦 | JDDFE</title>
+  <meta name="description" content="🚀 宣布 Parcel：一个快速，零配置的 Web 应用打包工具 📦 原文：🚀 Announcing Parcel: A blazing fast, zero configuration web application bundler 📦 译者：neal1991 welcome to star my articles-translator, providing you advanced a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个快速，零配置的 Web 应用打包工具 📦">
+<meta property="og:url" content="https://blog.jddfe.com/posts/8237/index.html">
+<meta property="og:site_name" content="JDDFE">
+<meta property="og:description" content="🚀 宣布 Parcel：一个快速，零配置的 Web 应用打包工具 📦 原文：🚀 Announcing Parcel: A blazing fast, zero configuration web application bundler 📦 译者：neal1991 welcome to star my articles-translator, providing you advanced a">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.jddfe.com/posts/8237/202012210514.png">
+<meta property="article:published_time" content="2020-12-20T21:13:38.000Z">
+<meta property="article:modified_time" content="2021-06-29T04:01:49.091Z">
+<meta property="article:author" content="jddfer">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jddfe.com/posts/8237/202012210514.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.jddfe.com/posts/8237/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/jddfe" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">JDDFE</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Just Developer &amp; Design</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jddfe" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/jddfe" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="https://jddfe.coding.net" target="_blank" title="Coding" data-toggle=tooltip data-placement=top><i class="icon icon-coding"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%83%E7%93%9C/">吃瓜</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%87%82%E7%90%86%E8%B4%A2/">懂理财</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/">折腾不止</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/">每日最佳</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Page/" rel="tag">Github Page</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-GitPage/" rel="tag">Hexo GitPage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/" rel="tag">event</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">vue 学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E9%A9%AC%E5%B8%81%E6%A1%88/" rel="tag">一马币案</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%B0%91%E6%91%86%E6%91%8A/" rel="tag">全民摆摊</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8-XSS/" rel="tag">前端安全 XSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E9%87%91/" rel="tag">基金</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag">定投</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BC%97%E9%93%B6%E8%A1%8C/" rel="tag">微众银行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" rel="tag">栈和堆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/" rel="tag">每日最佳</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81/" rel="tag">节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9B%8B%E5%A3%B3%E5%85%AC%E5%AF%93%E7%88%86%E9%9B%B7/" rel="tag">蛋壳公寓爆雷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D/" rel="tag">适配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" rel="tag">道德经</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%B2%E6%8A%96/" rel="tag">防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ES6/" style="font-size: 13.5px;">ES6</a> <a href="/tags/Git/" style="font-size: 13px;">Git</a> <a href="/tags/Github-Page/" style="font-size: 13px;">Github Page</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Hexo-GitPage/" style="font-size: 13px;">Hexo GitPage</a> <a href="/tags/JS/" style="font-size: 13.25px;">JS</a> <a href="/tags/Javascript/" style="font-size: 13.25px;">Javascript</a> <a href="/tags/css/" style="font-size: 13px;">css</a> <a href="/tags/event/" style="font-size: 13px;">event</a> <a href="/tags/javascript/" style="font-size: 13.75px;">javascript</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/vue-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">vue 学习笔记</a> <a href="/tags/%E4%B8%80%E9%A9%AC%E5%B8%81%E6%A1%88/" style="font-size: 13.25px;">一马币案</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 13px;">事件</a> <a href="/tags/%E5%85%A8%E6%B0%91%E6%91%86%E6%91%8A/" style="font-size: 13px;">全民摆摊</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8-XSS/" style="font-size: 13px;">前端安全 XSS</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 13px;">原型链</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 13px;">基金</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">学习笔记</a> <a href="/tags/%E5%AE%9A%E6%8A%95/" style="font-size: 13px;">定投</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BC%97%E9%93%B6%E8%A1%8C/" style="font-size: 13px;">微众银行</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 13px;">微信公众号</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" style="font-size: 13px;">栈和堆</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/" style="font-size: 13px;">每日最佳</a> <a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 13px;">节流</a> <a href="/tags/%E8%9B%8B%E5%A3%B3%E5%85%AC%E5%AF%93%E7%88%86%E9%9B%B7/" style="font-size: 13px;">蛋壳公寓爆雷</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 13px;">适配</a> <a href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" style="font-size: 13px;">道德经</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 13px;">闭包</a> <a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 13px;">防抖</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13.25px;">面向对象</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/1746/" class="title">前端安全之跨站脚本攻击（XSS）防御</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-28T22:41:53.000Z" itemprop="datePublished">2021-01-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/34562/" class="title">Vue知识汇总</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-07T20:09:20.000Z" itemprop="datePublished">2021-01-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/8237/" class="title">一个快速，零配置的 Web 应用打包工具 📦</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-20T21:13:38.000Z" itemprop="datePublished">2020-12-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/60300/" class="title">送给 ES6 开发者的7个hack</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-19T21:13:38.000Z" itemprop="datePublished">2020-12-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/11988/" class="title">微信公众号业务域名、JS接口安全域名、网页授权三者作用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-06T21:57:39.000Z" itemprop="datePublished">2020-12-07</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-🚀 宣布 Parcel：一个快速，零配置的 Web 应用打包工具 📦" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一个快速，零配置的 Web 应用打包工具 📦
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/8237/" class="article-date">
+	  <time datetime="2020-12-20T21:13:38.000Z" itemprop="datePublished">2020-12-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/8237/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="🚀-宣布-Parcel：一个快速，零配置的-Web-应用打包工具-📦"><a href="#🚀-宣布-Parcel：一个快速，零配置的-Web-应用打包工具-📦" class="headerlink" title="🚀 宣布 Parcel：一个快速，零配置的 Web 应用打包工具 📦"></a>🚀 宣布 Parcel：一个快速，零配置的 Web 应用打包工具 📦</h2><blockquote>
+<p>原文：<a target="_blank" rel="noopener" href="https://hackernoon.com/announcing-parcel-a-blazing-fast-zero-configuration-web-application-bundler-feac43aac0f1">🚀 Announcing Parcel: A blazing fast, zero configuration web application bundler 📦</a></p>
+<p>译者：<a target="_blank" rel="noopener" href="https://github.com/neal1991">neal1991</a></p>
+<p>welcome to star my <a target="_blank" rel="noopener" href="https://github.com/neal1991/articles-translator/">articles-translator</a>, providing you advanced articles translation. Any suggestion, please issue or contact <a href="mailto:bing@stu.ecnu.edu.cn">me</a></p>
+<p>LICENSE: <a target="_blank" rel="noopener" href="https://opensource.org/licenses/MIT">MIT</a></p>
+</blockquote>
+<p>今天，我非常高兴地宣布 Parcel，一个快速，零配置的 Web 应用程序打包工具，我对于该工具的工作已经持续了几个月。 去 <a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel">Github</a>上看看吧！</p>
+<p>为了解决我在 Browserify 和 Webpack 等现有模块打包工具中遇到的两个主要问题：<strong>性能</strong>和<strong>配置经验</strong>，我开始研究 Parcel。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>🚀 <strong>非常快</strong>的打包时间 - 多核编译，以及文件系统缓存，这样即使在重新启动后也能快速重建。</li>
+<li>📦对于 JS, CSS, HTML, 图片以及文件资源以及其它支持<a target="_blank" rel="noopener" href="https://parceljs.org/assets.html">开箱即用</a>，<strong>不需要安装插件</strong>。</li>
+<li>🐠在需要时使用 Babel，PostCSS 和 PostHTML <strong>自动</strong><a target="_blank" rel="noopener" href="https://parceljs.org/transforms.html"><strong>转换</strong></a><strong>模块</strong> - 甚至是node_modules。</li>
+<li>✂️ <strong>零配置</strong><a target="_blank" rel="noopener" href="https://parceljs.org/code_splitting.html">代码分割</a>使用动态import() 语句。</li>
+<li>🔥内置支持<a target="_blank" rel="noopener" href="https://parceljs.org/hmr.htm">热加载</a></li>
+<li>🚨 友好的错误日志体验 - 语法高亮显示的代码帧有助于查明问题。</li>
+</ul>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>我被激发建立一个新的打包工具的第一个原因是性能。 我已经在数千个模块上做了一些相当大的应用程序，并且总是对现有打包工具的速度感到失望。 大型应用程序可能需要几分钟才能完成，这在开发过程中尤其令人沮丧</p>
+<p>许多打包工具专注于快速增量重新构建性能，这是很好的。 但是，最初的构建性能对于开发和生产/ CI 构建也非常重要。</p>
+<p>Parcel 通过使用工作进程<strong>并行编译代码</strong>，利用现代多核处理器解决了这个问题。 这导致了初始构建的巨大加速。 它还有一个文件系统缓存，可以保存每个文件的编译结果，以便更快的后续启动。</p>
+<!-- ![Based on a reasonably sized app, containing 1726 modules, 6.5M uncompressed. Built on a 2016 MacBook Pro with 4 physical CPUs.](https://cdn-images-1.medium.com/max/2000/1*t8afejIByMpoZKSs-URTIQ.png) -->
+<p><img src="202012210514.png" alt="202012210514"></p>
+<h3 id="零配置体验"><a href="#零配置体验" class="headerlink" title="零配置体验"></a>零配置体验</h3><p>我建立Parcel的第二个原因是帮助解决管理配置的痛苦。大多数其它打包工具都是围绕着配置文件以及大量的插件建立起来的，为了使事情顺利进行，看到 500 行以上的应用程序配置并不罕见。</p>
+<p>这种配置不仅繁琐耗时，而且很难正确使用，并且必须针对每个应用程序进行复制。通常情况下，这可能导致次优化的应用程序转到到生产。</p>
+<p>Parcel 被设计为<strong>零配置</strong>：只需将它指向你的应用程序的入口点，它就能正确工作。 Parcel 支持 JS，CSS，HTML，图片，文件资源等等 - 不需要任何插件。</p>
+<p>Parcel 的零配置体验也涉及到文件格式。当 Parcel 检测到 .babelrc，.postcssrc 等时，也会自动应用像 Babel，PostCSS 和 PostHTML 这样的<strong>转换</strong>。这甚至适用于仅用于该模块的 node_modules 中的第三方代码，因此应用程序作者不需要知道如何构建他们导入的每个模块，并且构建不会减慢不必要地在每个文件上运行 Babel。</p>
+<p>最后，还支持代码分割和热模块重新加载等高级打包功能。在生产模式下，Parcel 自动启用缩小，未来还会进行其他优化，如 tree-shaking。</p>
+<h3 id="未来架构"><a href="#未来架构" class="headerlink" title="未来架构"></a>未来架构</h3><p>启动一个新项目的一个好处是，我能够为 Parcel 设计一个更加现代化的架构，这个架构更加可扩展，更灵活，同时无需用户配置，并支持<strong>代码拆分</strong>和<strong>热加载</strong>等高级功能。</p>
+<p>大多数打包工具主要关注 JavaScript，并支持其他格式。例如，默认情况下，其他文件类型通常会内嵌到JavaScript 文件中，并使用额外的插件和 hack 将其再次提取到单独的文件中。</p>
+<p>在 Parcel 中，任何类型的文件都可以成为一等公民。添加代表输入文件的新资源类型和将类似类型的资源组合到输出文件中的打包工具很容易。</p>
+<p>例如，分析和生成 CSS 代码的 CSS 资源类型和将 CSS 资源组合成最终打包的 CSS Packager。 JS，HTML 等存在类似的类型。这样，Parcel 完全是<strong>文件类型无关</strong>的。</p>
+<p>你可以阅读更多关于<a target="_blank" rel="noopener" href="https://parceljs.org/how_it_works.html">Parcel 如何在网站上工作</a>的信息。</p>
+<h3 id="试试把"><a href="#试试把" class="headerlink" title="试试把"></a>试试把</h3><p>Parcel  刚刚开始，但许多应用程序已经开箱即用并且零配置！ 所以试试看吧 - 删除你的webpack/browserify配置，卸载这些插件，然后尝试Parcel。😎</p>
+<p>欢迎向我反馈！ 你可以在Twitter上找到我<a target="_blank" rel="noopener" href="https://twitter.com/devongovett">@devongovett</a>。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://parceljs.org/">网站和文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel">Github</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.jddfe.com/posts/8237/" title="一个快速，零配置的 Web 应用打包工具 📦" target="_blank" rel="external">https://blog.jddfe.com/posts/8237/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jddfe" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jddfe" target="_blank"><span class="text-dark">JDDFE</span><small class="ml-1x">Just Developer &amp; Design</small></a></h3>
+        <div>不懂理财的吃瓜群众不是好攻城狮</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/34562/" title="Vue知识汇总"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/60300/" title="送给 ES6 开发者的7个hack"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jddfe" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/jddfe" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="https://jddfe.coding.net" target="_blank" title="Coding" data-toggle=tooltip data-placement=top><i class="icon icon-coding"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ab7714dcf913e5cb7d1a',
+    clientSecret: '36c601024585737b57e523027eb54334e241e265',
+    repo: 'jddfe.github.io',
+    owner: 'jddfe',
+    admin: ['jddfe'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>

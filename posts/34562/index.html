@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Vue知识汇总 | JDDFE</title>
+  <meta name="description" content="对MVVM模式的理解MVVM 对应 3个组成部分，Model（模型）、View（视图） 和 ViewModel（视图模型）。  1）View 是用户在屏幕上看到的结构、布局和外观，也称UI。2）ViewModel 是一个绑定器，能和 View 层和 Model 层进行通信。3）Model 是数据和逻辑。 View 不能和 Model 直接通信，它们只能通过 ViewModel 通信。Model 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue知识汇总">
+<meta property="og:url" content="https://blog.jddfe.com/posts/34562/index.html">
+<meta property="og:site_name" content="JDDFE">
+<meta property="og:description" content="对MVVM模式的理解MVVM 对应 3个组成部分，Model（模型）、View（视图） 和 ViewModel（视图模型）。  1）View 是用户在屏幕上看到的结构、布局和外观，也称UI。2）ViewModel 是一个绑定器，能和 View 层和 Model 层进行通信。3）Model 是数据和逻辑。 View 不能和 Model 直接通信，它们只能通过 ViewModel 通信。Model 和">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.jddfe.com/posts/34562/2021-01-08T121438.png">
+<meta property="og:image" content="https://blog.jddfe.com/posts/34562/2021-01-08T140701.png">
+<meta property="article:published_time" content="2021-01-07T20:09:20.000Z">
+<meta property="article:modified_time" content="2021-06-29T06:07:29.252Z">
+<meta property="article:author" content="jddfer">
+<meta property="article:tag" content="vue 学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jddfe.com/posts/34562/2021-01-08T121438.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.jddfe.com/posts/34562/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="JDDFE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/jddfe" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">JDDFE</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Just Developer &amp; Design</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jddfe" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/jddfe" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="https://jddfe.coding.net" target="_blank" title="Coding" data-toggle=tooltip data-placement=top><i class="icon icon-coding"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%83%E7%93%9C/">吃瓜</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%87%82%E7%90%86%E8%B4%A2/">懂理财</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE%E4%B8%8D%E6%AD%A2/">折腾不止</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/">每日最佳</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Page/" rel="tag">Github Page</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-GitPage/" rel="tag">Hexo GitPage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/" rel="tag">event</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/" rel="tag">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">vue 学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E9%A9%AC%E5%B8%81%E6%A1%88/" rel="tag">一马币案</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%B0%91%E6%91%86%E6%91%8A/" rel="tag">全民摆摊</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8-XSS/" rel="tag">前端安全 XSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E9%87%91/" rel="tag">基金</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag">定投</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BC%97%E9%93%B6%E8%A1%8C/" rel="tag">微众银行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" rel="tag">栈和堆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/" rel="tag">每日最佳</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81/" rel="tag">节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9B%8B%E5%A3%B3%E5%85%AC%E5%AF%93%E7%88%86%E9%9B%B7/" rel="tag">蛋壳公寓爆雷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D/" rel="tag">适配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" rel="tag">道德经</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%B2%E6%8A%96/" rel="tag">防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ES6/" style="font-size: 13.5px;">ES6</a> <a href="/tags/Git/" style="font-size: 13px;">Git</a> <a href="/tags/Github-Page/" style="font-size: 13px;">Github Page</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Hexo-GitPage/" style="font-size: 13px;">Hexo GitPage</a> <a href="/tags/JS/" style="font-size: 13.25px;">JS</a> <a href="/tags/Javascript/" style="font-size: 13.25px;">Javascript</a> <a href="/tags/css/" style="font-size: 13px;">css</a> <a href="/tags/event/" style="font-size: 13px;">event</a> <a href="/tags/javascript/" style="font-size: 13.75px;">javascript</a> <a href="/tags/rem/" style="font-size: 13px;">rem</a> <a href="/tags/vue-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">vue 学习笔记</a> <a href="/tags/%E4%B8%80%E9%A9%AC%E5%B8%81%E6%A1%88/" style="font-size: 13.25px;">一马币案</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 13px;">事件</a> <a href="/tags/%E5%85%A8%E6%B0%91%E6%91%86%E6%91%8A/" style="font-size: 13px;">全民摆摊</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8-XSS/" style="font-size: 13px;">前端安全 XSS</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 13px;">原型链</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 13px;">基金</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">学习笔记</a> <a href="/tags/%E5%AE%9A%E6%8A%95/" style="font-size: 13px;">定投</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BC%97%E9%93%B6%E8%A1%8C/" style="font-size: 13px;">微众银行</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 13px;">微信公众号</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%A0%88%E5%92%8C%E5%A0%86/" style="font-size: 13px;">栈和堆</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E6%9C%80%E4%BD%B3/" style="font-size: 13px;">每日最佳</a> <a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 13px;">节流</a> <a href="/tags/%E8%9B%8B%E5%A3%B3%E5%85%AC%E5%AF%93%E7%88%86%E9%9B%B7/" style="font-size: 13px;">蛋壳公寓爆雷</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 13px;">适配</a> <a href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" style="font-size: 13px;">道德经</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 13px;">闭包</a> <a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 13px;">防抖</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13.25px;">面向对象</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/1746/" class="title">前端安全之跨站脚本攻击（XSS）防御</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-28T22:41:53.000Z" itemprop="datePublished">2021-01-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/34562/" class="title">Vue知识汇总</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-07T20:09:20.000Z" itemprop="datePublished">2021-01-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/8237/" class="title">一个快速，零配置的 Web 应用打包工具 📦</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-20T21:13:38.000Z" itemprop="datePublished">2020-12-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/60300/" class="title">送给 ES6 开发者的7个hack</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-19T21:13:38.000Z" itemprop="datePublished">2020-12-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/11988/" class="title">微信公众号业务域名、JS接口安全域名、网页授权三者作用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-06T21:57:39.000Z" itemprop="datePublished">2020-12-07</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Vue知识汇总" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue知识汇总
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/34562/" class="article-date">
+	  <time datetime="2021-01-07T20:09:20.000Z" itemprop="datePublished">2021-01-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/vue-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">vue 学习笔记</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/34562/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.8k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 14(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="对MVVM模式的理解"><a href="#对MVVM模式的理解" class="headerlink" title="对MVVM模式的理解"></a>对MVVM模式的理解</h2><p>MVVM 对应 3个组成部分，Model（模型）、View（视图） 和 ViewModel（视图模型）。 </p>
+<p>1）View 是用户在屏幕上看到的结构、布局和外观，也称UI。<br>2）ViewModel 是一个绑定器，能和 View 层和 Model 层进行通信。<br>3）Model 是数据和逻辑。</p>
+<p>View 不能和 Model 直接通信，它们只能通过 ViewModel 通信。<br>Model 和 ViewModel 之间的交互是双向的，ViewModel 通过双向数据绑定把 View 层和 Model 层连接起来，<br>因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</p>
+<blockquote>
+<p>严格的 MVVM 要求 View 不能和 Model 直接通信，而 Vue 在组件提供了 $refs 这个属性，让 Model 可以直接操作 View，违反了这一规定。</p>
+</blockquote>
+<h2 id="Vue的渲染流程"><a href="#Vue的渲染流程" class="headerlink" title="Vue的渲染流程"></a>Vue的渲染流程</h2><p>流程主要分为三个部分：</p>
+<p>1）模板编译，parse 解析模板生成抽象语法树（AST）；optimize 标记静态节点，在后续页面更新时会跳过静态节点；<br>   generate 将AST转成 render 函数，render 函数用于构建 VNode。<br>2）构建VNode（虚拟dom），构建过程使用 createElement 构建 VNode，<br>   createElement 也是自定义 render 函数时接受到的第一个参数。<br>3）VNode转真实dom，patch 函数负责将 VNode 转换成真实dom，<br>   核心方法是createElm，递归创建真实dom树，最终渲染到页面上。</p>
+<p><img src="2021-01-08T121438.png" alt="2021-01-08T121438"></p>
+<h2 id="Vue-生命周期"><a href="#Vue-生命周期" class="headerlink" title="Vue 生命周期"></a>Vue 生命周期</h2><ol>
+<li>beforeCreate: 在实例创建之前调用，由于实例还未创建，所以无法访问实例上的 data、computed、method等。</li>
+<li>created: 在实例创建完成后调用，这时已完成数据的观测，可以获取数据和更改数据，但还无法与dom进行交互，如果想要访问dom，可以使用 vm.$nextTick。此时可以对数据进行更改，不会触发 updated。</li>
+<li>beforeMount: 在挂载之前调用，这时的模板已编译完成并生成render函数，准备开始渲染。在此时也可以对数据进行更改，不会触发 updated。</li>
+<li>mounted: 在挂载完成后调用，真实的dom挂载完毕，可以访问到dom节点，使用 $refs 属性对dom进行操作。</li>
+<li>beforeUpdate: 在更新之前调用，也就是响应式数据发生更新，虚拟dom重新渲染之前被触发，在当前阶段进行更改数据，不会造成重渲染。</li>
+<li>updated： 在更新完成之后调用，组件dom已完成更新。要注意的是避免在此期间更改数据，这可能会导致死循环。</li>
+<li>beforeDestroy： 在实例销毁之前调用，这时实例还可以被使用，一般这个周期内可以做清除计时器和取消事件监听的工作。</li>
+<li>destroyed： 在实例销毁之后调用，这时已无法访问实例。当前实例从父实例中被移除，观测被卸载，所有事件监听器呗移除，子实例也统统被销毁。</li>
+</ol>
+<h2 id="Vue-父组件和子组件生命周期执行顺序"><a href="#Vue-父组件和子组件生命周期执行顺序" class="headerlink" title="Vue 父组件和子组件生命周期执行顺序"></a>Vue 父组件和子组件生命周期执行顺序</h2><p>1、渲染过程<br>  1)父组件 beforeCreate<br>  2)父组件 created<br>  3)父组件 beforeMount<br>  4)子组件 beforeCreate<br>  5)子组件 created<br>  6)子组件 beforeMount<br>  7)子组件 mounted<br>  8)父组件 mounted</p>
+<p>子组件早于父组件挂载，因为创建节点树时使用的是递归，子组件会先被创建完成，<br>最后才是整个父节点创建完成。</p>
+<p>2、更新过程<br>  1）父组件 beforeUpdate<br>  2）子组件 beforeUpdate<br>  3）子组件 updated<br>  4）父组件 updated</p>
+<p>3、销毁过程<br>  1）父组件 beforeDestroy<br>  2）子组件 beforeDestroy<br>  3）子组件 destroyed<br>  4）父组件 destroyed</p>
+<h2 id="data为什么要求是函数"><a href="#data为什么要求是函数" class="headerlink" title="data为什么要求是函数"></a>data为什么要求是函数</h2><p>当一个组件被定义，data 必须声明为返回一个初始数据对象的函数，<br>因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，<br>则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，<br>我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。</p>
+<p>Vue 构造实例使用的是同一个构造函数，data 直接使用对象会导致实例的共享引用，<br>即组件间的状态会相互影响。通常发生共享引用，都是组件复用的情况。<br>使用函数返回一个对象，由于是不同引用，自然可以避免这个问题发生。</p>
+<h2 id="组件通信方式"><a href="#组件通信方式" class="headerlink" title="组件通信方式"></a>组件通信方式</h2><ul>
+<li>props/emit</li>
+<li>$children/$parent</li>
+<li>ref</li>
+<li>$attrs/$listeners</li>
+<li>provide/inject</li>
+<li>eventBus</li>
+<li>vuex</li>
+</ul>
+<h2 id="Vue-的5种指令"><a href="#Vue-的5种指令" class="headerlink" title="Vue 的5种指令"></a>Vue 的5种指令</h2><p>1）v-if<br>2）v-for<br>3）v-show<br>4）v-html<br>5）v-model</p>
+<h2 id="v-if-和-v-show-的区别"><a href="#v-if-和-v-show-的区别" class="headerlink" title="v-if 和 v-show 的区别"></a>v-if 和 v-show 的区别</h2><p>v-if 会让条件块内元素或组件适当地被销毁和重建。<br>v-show 的元素或组件一开始就被渲染，只是简单的进行css切换。<br>相比之下，v-if 会带来更高的切换消耗，所以频繁切换使用 v-show，不常切换则使用 v-if。</p>
+<h2 id="v-model的理解"><a href="#v-model的理解" class="headerlink" title="v-model的理解"></a>v-model的理解</h2><p>v-model 是属性 value 和 input 事件的语法糖。内部默认将 value 作为值，<br>使用 $emit 触发 input 事件更新属性，从而实现双向绑定。<br>而自定义双向绑定可以定义组件的 model 选项设置 prop 和 event 来实现。</p>
+<h2 id="双向绑定原理"><a href="#双向绑定原理" class="headerlink" title="双向绑定原理"></a>双向绑定原理</h2><p>双向绑定是视图变化会反映到数据，数据变化会反映到视图，<br>v-model 就是个很好理解的例子。其实主要考查的还是响应式原理，<br>响应式原理共包括3个主要成员，Observer 负责监听数据变化，<br>Dep 负责依赖收集，Watcher 负责数据或视图更新，我们常说的收集依赖就是收集 Watcher。</p>
+<p><img src="2021-01-08T140701.png" alt="2021-01-08T140701"><br>响应式原理主要工作流程如下：<br>1）Observer 内使用 Object.defineProperty 劫持数据，为其设置 set 和 get。<br>2）每个数据都会有自己的 dep。数据取值触发 get 函数，调用 dep.depend 收集依赖；<br>   数据更新触发 set 函数，调用 dep.notify 通知 Watcher 更新。<br>3）Watcher 接收到更新的通知，将这些通知加入到一个异步队列中，<br>   并且进行去重处理，等到所有同步操作完成后，再一次性更新视图。</p>
+<h2 id="Vue-中-的-key-有什么作用"><a href="#Vue-中-的-key-有什么作用" class="headerlink" title="Vue 中 的 key 有什么作用"></a>Vue 中 的 key 有什么作用</h2><p>key 是每个 VNode 的唯一标识，依靠 key 能够在 diff 算法执行时更快的找到对应的 VNode，提高 diff 速度。<br>key 能保证元素之间的状态独立，在更新后状态不被复用，<br>避免一些意外的结果。就像输入框在复用的情况下，即使元素更新，<br>输入框的内容依旧没有刷新，这是因为 Vue 默认是使用“就地复用”的策略，<br>会尽可能减少创建和销毁的过程。</p>
+<h2 id="computed-和-watch-的区别"><a href="#computed-和-watch-的区别" class="headerlink" title="computed 和 watch 的区别"></a>computed 和 watch 的区别</h2><p>1）computed 依赖 data 的改变而改变，computed 有返回值；watch 观测 data，<br>   执行对应的函数。<br>2）computed 有缓存功能，重复取值不会执行求值函数。<br>3）computed 依赖收集在页面渲染时触发，watch 依赖收集在页面渲染前触发。<br>4）computed 更新需要“渲染Watcher”的配合，computed 更新只是设置 dirty，<br>   需要页面渲染触发 get 重新求值</p>
+<h2 id="Vue-中的-computed-是如何实现缓存的"><a href="#Vue-中的-computed-是如何实现缓存的" class="headerlink" title="Vue 中的 computed 是如何实现缓存的"></a>Vue 中的 computed 是如何实现缓存的</h2><p>“计算属性Watcher”会带有一个 dirty 的属性，在初始化取值完成后，会将求值结果缓存起来，<br>并把 dirty 设置为 false。只要依赖属性不更新，dirty 永远为 false，<br>重复取值也不会再去执行求值函数，而是直接返回缓存结果，从而实现缓存。<br>相反，依赖属性更新会将“计算属性 Watcher”的 dirty 设置为 true，<br>在页面渲染对计算属性取值时，再次触发求值函数更新计算属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(target, key, &#123;</span><br><span class="line">    get() &#123;</span><br><span class="line">        const watcher &#x3D; this._computedWatchers &amp;&amp; this._computedWatchers[key]</span><br><span class="line">        &#x2F;&#x2F; 计算属性缓存</span><br><span class="line">        if (watcher.dirty) &#123;  </span><br><span class="line">            &#x2F;&#x2F; 计算属性求值</span><br><span class="line">            watcher.evaluate()  </span><br><span class="line">        &#125;</span><br><span class="line">        return watcher.value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="子组件为什么不能直接更改props？什么是单向数据流？"><a href="#子组件为什么不能直接更改props？什么是单向数据流？" class="headerlink" title="子组件为什么不能直接更改props？什么是单向数据流？"></a>子组件为什么不能直接更改props？什么是单向数据流？</h2><p>所有的 prop 都使得其父子 prop 之间形成了一个单向下行绑定：父级 prop 的更新会向下流动到子组件中，<br>但是反过来则不行。这样会防止从子组件意外变更父级组件的状态，从而导致你的应用的数据流向难以理解。</p>
+<p>子组件不能更改 props 是因为要遵循单向数据流的原则。<br>单向数据流只允许数据由父组件传递给子组件，数据只能由父组件更新。<br>当数据传递到多个子组件，而子组件能够在其内部更新数据时，<br>在主观上很难知道是哪个子组件更新了数据，导致数据流向不明确，从而增加应用调试的难度。<br>但子组件更新父组件数据的场景确实存在，有3种方法可以使用：</p>
+<p>1）子组件 emit，父组件接受自定义事件。这种方法最终还是由父组件进行修改，<br>   子组件只是起到一个通知的作用。<br>2）子组件自定义双向绑定，设置组件的 model 选项为组件添加自定义双向绑定。<br>3）.sync 属性修饰符，它是第一种方法的语法糖，在传递属性添加上该修饰符，<br>   子组件内可调用 this.$emit(‘update:属性名’, value) 更新属性。</p>
+<h2 id="Vue-如何检测数组更新"><a href="#Vue-如何检测数组更新" class="headerlink" title="Vue 如何检测数组更新"></a>Vue 如何检测数组更新</h2><p>Vue 内部重写数组原型链，当数组发生变化时，除了执行原生的数组方法外，<br>还会调用 dep.notify 通知 Watcher 更新。触发数组更新的方法共7种：</p>
+<p>1)push<br>2)pop<br>3)shift<br>4)unshift<br>5)splice<br>6)sort<br>7)reverse</p>
+<h2 id="keep-alive-是如何实现的？"><a href="#keep-alive-是如何实现的？" class="headerlink" title="keep-alive 是如何实现的？"></a>keep-alive 是如何实现的？</h2><p>keep-alive 是 Vue 的内置组件，同时也是一个抽象组件，不会作为元素被渲染到页面上。<br>它用于组件缓存。当组件切换时会将组件的VNode缓存起来，<br>等待下次重新激活时，再将缓存的组件VNode取出来渲染，从而实现缓存。</p>
+<p>常用的两个属性 include 和 exclude，支持字符串、正则和数组的形式，<br>允许组件有条件的进行缓存。还有 max 属性，用于设置最大缓存数。</p>
+<p>两个生命周期 activated 和 deactivated，在组件激活和失活时触发。</p>
+<p>keep-alive 的缓存机制运用LRU(Least Recently Used)算法</p>
+<h2 id="说一下-nextTick-的原理"><a href="#说一下-nextTick-的原理" class="headerlink" title="说一下 nextTick 的原理"></a>说一下 nextTick 的原理</h2><p>在下次 dom 更新结束之后执行延迟回调。nextTick 主要使用了宏任务和微任务。<br>根据执行环境分别尝试采用：</p>
+<p>1)Promise<br>2)MutationObserver<br>3)setImmediate<br>4)setTimeout</p>
+<p>nextTick 主要用于内部 Watcher 的异步更新，<br>对外我们可以使用 Vue.nextTick 和 vm.$nextTick。在 nextTick 中可以获取更新完成的 dom。</p>
+<h2 id="对比-Vue3-和-Vue2-x"><a href="#对比-Vue3-和-Vue2-x" class="headerlink" title="对比 Vue3 和 Vue2.x"></a>对比 Vue3 和 Vue2.x</h2><p>1)使用 Proxy 代替 Object.defineProperty<br>2)新增 Composition API<br>3)模板允许多个根节点</p>
+<h2 id="Vue3-为什么使用-Proxy-代替-Object-definedProperty"><a href="#Vue3-为什么使用-Proxy-代替-Object-definedProperty" class="headerlink" title="Vue3 为什么使用 Proxy 代替 Object.definedProperty"></a>Vue3 为什么使用 Proxy 代替 Object.definedProperty</h2><p>Object.definedProperty 只能检测到属性的获取和设置，对于新增和删除是没办法检测的。<br>在数据初始化时，由于不知道哪些数据会被用到，Vue 是直接递归观测全部数据，<br>这会导致性能多余的消耗。</p>
+<p>Proxy 劫持整个对象，对象属性的增加和删除都能检测到。Proxy 并不能监听到内部深层的对象变化，<br>因此 Vue 3.0 的处理方式是在 getter 中去递归响应式，只有真正访问到的内部对象才会变成响应式，<br>而不是无脑递归，在很大程度上提升了性能。</p>
+<h2 id="路由懒加载是如何实现的"><a href="#路由懒加载是如何实现的" class="headerlink" title="路由懒加载是如何实现的"></a>路由懒加载是如何实现的</h2><p>路由懒加载是性能优化的一种手段，在编写代码时可以使用 import() 引入路由组件，<br>使用懒加载的路由会在打包时单独出来成一个 js 文件，可以使用 webpackChunkName 自定义包名。<br>在项目上线后，懒加载的 js 文件不会在第一时间加载，而是在访问到对应的路由时，<br>才会动态创建 script 标签去加载这个 js 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path:&#39;users&#39;,</span><br><span class="line">  name:&#39;users&#39;,</span><br><span class="line">  component:()&#x3D;&gt; import(&#x2F;*webpackChunkName: &quot;users&quot;*&#x2F; &#39;@&#x2F;views&#x2F;users&#39;),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue路由钩子函数"><a href="#Vue路由钩子函数" class="headerlink" title="Vue路由钩子函数"></a>Vue路由钩子函数</h2><p>1、全局钩子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1&gt; beforeEach （路由进入前调用）</span><br><span class="line">const router &#x3D; new VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach((to, from, next) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 2&gt; beforeResolve (2.5.0 新增) 在所有组件内守卫和异步组件被解析之后调用</span><br><span class="line"></span><br><span class="line">router.beforeResolve((to, from, next) &#x3D;&gt; &#123;</span><br><span class="line"> &#x2F;&#x2F; ...</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 3&gt; afterEach 路由在确认后调用</span><br><span class="line"></span><br><span class="line">router.afterEach((to, from) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>2、路由独享钩子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; beforeEnter 路由进入前调用，beforeEnter 在 beforeEach 之后执行</span><br><span class="line"></span><br><span class="line">const router &#x3D; new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &#39;&#x2F;foo&#39;,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: (to, from, next) &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F; ...</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>3、组件钩子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1）beforeRouteEnter 路由确认前调用，组件实例还没被创建，不能获取组件实例 this</span><br><span class="line">beforeRouteEnter (to, from, next) &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">    &#x2F;&#x2F; 可以通过回调访问实例</span><br><span class="line">    next(vm &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F; vm 为组件实例</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 2）beforeRouteUpdate (2.2 新增) 路由改变时调用，可以访问组件实例</span><br><span class="line"></span><br><span class="line">beforeRouteUpdate (to, from, next) &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 3）beforeRouteLeave 离开该组件的对应路由时调用，可以访问组件实例 this</span><br><span class="line"></span><br><span class="line">beforeRouteLeave (to, from, next) &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vue-router的原理"><a href="#vue-router的原理" class="headerlink" title="vue-router的原理"></a>vue-router的原理</h2><p>vue-router 原理是更新视图而不重新请求页面。vue-router 共有3种模式：<br>hash模式、history模式、abstract模式。</p>
+<p>1、hash模式<br>hash 模式使用 hashchange 监听地址栏的 hash 值的变化，加载对应的页面。<br>每次的 hash 值变化后依然会在浏览器留下历史记录，<br>可以通过浏览器的前进后退按钮回到上一个页面。</p>
+<p>2、history模式<br>history 模式基于History Api实现，使用 popstate 监听地址栏的变化。<br>使用 pushState 和 replaceState 修改 url，而无需加载页面。<br>但是在刷新页面时还是会向后端发起请求，需要后端配合将资源定向回前端，交由前端路由处理。</p>
+<p>3、abstract<br>不涉及和浏览器地址的相关记录。通过数组维护模拟浏览器的历史记录栈。</p>
+<h2 id="vuex-怎么跨模块调用"><a href="#vuex-怎么跨模块调用" class="headerlink" title="vuex 怎么跨模块调用"></a>vuex 怎么跨模块调用</h2><p>跨模块调用是指当前命名空间模块调用全局模块或者另一个命名空间模块。<br>在调用 dispatch 和 commit 时设置第三个参数为 {root：true}。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">modules: &#123;</span><br><span class="line">  foo: &#123;</span><br><span class="line">    namespaced: true,</span><br><span class="line">    actions: &#123;</span><br><span class="line">      someAction (&#123; dispatch, commit, getters, rootGetters &#125;) &#123;</span><br><span class="line">        &#x2F;&#x2F; 调用自己的action</span><br><span class="line">        dispatch(&#39;someOtherAction&#39;) &#x2F;&#x2F; -&gt; &#39;foo&#x2F;someOtherAction&#39;</span><br><span class="line">        &#x2F;&#x2F; 调用全局的action</span><br><span class="line">        dispatch(&#39;someOtherAction&#39;, null, &#123; root: true &#125;) &#x2F;&#x2F; -&gt; &#39;someOtherAction&#39;</span><br><span class="line">        &#x2F;&#x2F; 调用其他模块的action</span><br><span class="line">        dispatch(&#39;user&#x2F;someOtherAction&#39;, null, &#123; root: true &#125;) &#x2F;&#x2F; -&gt; &#39;user&#x2F;someOtherAction&#39;</span><br><span class="line">      &#125;,</span><br><span class="line">      someOtherAction (ctx, payload) &#123; ... &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vuex-如何实现持久化"><a href="#vuex-如何实现持久化" class="headerlink" title="vuex 如何实现持久化"></a>vuex 如何实现持久化</h2><p>vuex存储的状态在页面刷新后会丢失，使用持久化技术能保证页面刷新后状态依然存在。</p>
+<p>1）使用本地存储配合，设置 state 同时设置 storage，在刷新后再初始化 vuex<br>2）vuex-persistedstate 插件</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.jddfe.com/posts/34562/" title="Vue知识汇总" target="_blank" rel="external">https://blog.jddfe.com/posts/34562/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jddfe" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jddfe" target="_blank"><span class="text-dark">JDDFE</span><small class="ml-1x">Just Developer &amp; Design</small></a></h3>
+        <div>不懂理财的吃瓜群众不是好攻城狮</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/1746/" title="前端安全之跨站脚本攻击（XSS）防御"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/8237/" title="一个快速，零配置的 Web 应用打包工具 📦"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jddfe" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/jddfe" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="https://jddfe.coding.net" target="_blank" title="Coding" data-toggle=tooltip data-placement=top><i class="icon icon-coding"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ab7714dcf913e5cb7d1a',
+    clientSecret: '36c601024585737b57e523027eb54334e241e265',
+    repo: 'jddfe.github.io',
+    owner: 'jddfe',
+    admin: ['jddfe'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
